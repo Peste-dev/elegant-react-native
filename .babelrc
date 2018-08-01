@@ -1,0 +1,30 @@
+{
+  "presets": [
+    "react-native",
+    "babel-preset-react-native-stage-0/decorator-support"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "transform-react-jsx-source",
+        "transform-es2015-typeof-symbol"
+      ]
+    },
+    "production": {
+      "plugins": ["transform-remove-console"]
+    }
+  },
+  "plugins": [
+    ["module-resolver", {
+      "root": ["./app"],
+      "alias": {
+        "api": "./app/api",
+        "view": "./app/view",
+        "store": "./app/store",
+        "routes": "./app/routes",
+        "assets": "./app/assets",
+        "helpers": "./app/helpers"
+      }
+    }]
+  ]
+}
