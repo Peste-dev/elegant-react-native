@@ -1,25 +1,21 @@
-import { createStackNavigator } from 'react-navigation'
+import { StackNavigator } from 'react-navigation'
 
 import app from 'routes/app'
 import user  from 'routes/user'
-import movie from 'routes/movie'
-import player from 'routes/player'
 
-import Splash from 'view/Splash'
+import Splash from 'view/components/Splash'
 
 const routeConfig = [
   {
     Splash: { screen: Splash },
     ...app,
-    ...user,
-    ...movie,
-    ...player
+    ...user
   }, {
     headerMode: 'none',
     initialRouteName: 'Splash'
   }
 ]
 
-const Navigator = createStackNavigator(...routeConfig)
+const Navigator = StackNavigator(...routeConfig)
 
 export default Navigator

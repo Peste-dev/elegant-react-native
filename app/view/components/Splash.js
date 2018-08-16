@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connectStore } from "redux-box"
-import { StackActions, NavigationActions } from 'react-navigation'
+import { NavigationActions } from 'react-navigation'
 
 import Loading from 'view/components/Loading'
 
@@ -15,7 +15,7 @@ export default class App extends Component {
 
     await auth.isAuthenticated()
     
-    const resetAction = StackActions.reset({
+    const resetAction = NavigationActions.reset({
       index: 0,
       actions: [NavigationActions.navigate({ routeName: 'home' })],
     });
