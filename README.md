@@ -1,5 +1,5 @@
-# elegant-rn
-Elegant React Native
+# Elegant React Native
+- not production ready
 
 # TODO
 
@@ -10,3 +10,5 @@ Elegant React Native
 - upgrade to >= *.56.0 & babel >= 7
 
 more gonna be written soon :-)
+
+Breathe Project
