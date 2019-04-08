@@ -11,7 +11,7 @@ import apiMiddleware from 'store/middlewares/api'
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['auth'] //blacklist or whitelist any module by it's name
+  whitelist: ['app', 'auth'] //blacklist or whitelist any module by it's name
 }
 
 const modules = [

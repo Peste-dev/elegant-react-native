@@ -1,2 +1,9 @@
-export const baseUrl = 'https://server.lol/'
-export const apiUrl = 'https://server.lol/api/v1/'
+const version = '0.2.0'
+export const baseUrl = 'https://jsonplaceholder.typicode.com'
+export const apiUrl = 'https://jsonplaceholder.typicode.com/'
+
+export default {  
+  version,
+  apiUrl,
+  baseUrl
+}

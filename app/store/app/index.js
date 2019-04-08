@@ -12,5 +12,4 @@ export const module = {
   sagas
 }
 
-//OPTIONAL: if you want to access this store using render props:
 export default createContainer(module)

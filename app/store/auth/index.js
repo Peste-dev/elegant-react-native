@@ -3,13 +3,15 @@ import state from './state'
 import mutations from './mutations'
 import actions from './actions'
 import sagas from './sagas'
+import selectors from './selectors'
 
 export const module = {
   name : 'auth',
-  state, 
+  state,
+  sagas,
   actions, 
   mutations, 
-  sagas
+  selectors
 }
 
 export default createContainer(module)

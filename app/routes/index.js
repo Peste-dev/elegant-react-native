@@ -1,21 +1,15 @@
-import { StackNavigator } from 'react-navigation'
+import { createAppContainer, createStackNavigator } from 'react-navigation'
 
-import app from 'routes/app'
-import user  from 'routes/user'
+import HomeScreen from 'view/pages/home'
 
-import Splash from 'view/components/Splash'
-
-const routeConfig = [
+const AppNavigator = createStackNavigator(
   {
-    Splash: { screen: Splash },
-    ...app,
-    ...user
-  }, {
+    Home: HomeScreen
+  },
+  {
     headerMode: 'none',
-    initialRouteName: 'Splash'
+    initialRouteName: 'Home'
   }
-]
+)
 
-const Navigator = StackNavigator(...routeConfig)
-
-export default Navigator
+export default createAppContainer(AppNavigator)
