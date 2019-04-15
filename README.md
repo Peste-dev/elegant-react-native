@@ -1,7 +1,8 @@
 **Elegant** is a home-made Boilerplate for bootstrapping a [React Native] application.
 
   - Based on latest RN (V 0.59.3)
-  - Easy state management by [Redux Box] (based on [React Redux] V5.1.1)
+  - Using react-hooks
+  - State management by using React Context-API
   - [React Navigation]
   - [NativeBase]
 
@@ -9,7 +10,7 @@ I use this package on production but for you I'm not sure if it's the best to ch
 
 ### Installation
 
-Instal [React Native] cli and requirements
+Install [React Native] cli and requirements
 
 ```sh
 $ git clone https://github.com/ramyareye/elegant-react-native.git
@@ -48,8 +49,6 @@ MIT
 
    [React Native]: <https://facebook.github.io/react-native/docs/getting-started>
    [React Navigation]: <https://reactnavigation.org/>
-   [Redux Box]: <https://github.com/anish000kumar/redux-box>
-   [React Redux]: <https://github.com/reduxjs/react-redux>   
    [NativeBase]: <https://github.com/GeekyAnts/NativeBase>
    [todo]: <https://github.com/marudy/react-native-responsive-screen>
    [todo]: <https://github.com/rgommezz/react-native-offline>
