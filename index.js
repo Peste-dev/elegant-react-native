@@ -1,15 +1,17 @@
 import React from 'react'
-import { Provider } from 'react-redux'
 import { AppRegistry } from 'react-native'
 import { name as appName } from './app.json'
 
 import App from './app/App'
-import store from 'store'
+import { AppStateProvider } from './app/context/app/appContext'
+import { AuthStateProvider } from './app/context/auth/authContext'
 
 const Elegant = () => (
-  <Provider store={store}>
-    <App />
-  </Provider>
+  <AuthStateProvider>
+    <AppStateProvider>
+      <App />
+    </AppStateProvider>
+  </AuthStateProvider>
 )
 
-AppRegistry.registerComponent(appName, () => Elegant);
+AppRegistry.registerComponent(appName, () => Elegant)
