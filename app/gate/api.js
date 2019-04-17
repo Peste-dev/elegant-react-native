@@ -8,7 +8,7 @@ const client = axios.create({ baseURL: config.apiUrl, json: true })
 call = (method, url, data = {}) => {  
   return new Promise((resolve, reject) => {
     tokenHelper.get().then(token => {      
-      const headers = { Authorization: `Bearer ${token}` }      
+      const headers = token === '' ? {} : { Authorization: `Bearer ${token}` }
 
       client({
         url,
