@@ -3,11 +3,11 @@ import React, { useEffect, useState, useContext } from 'react'
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import { Container, Header, Left, Right, Body, Title, Button, Icon } from 'native-base'
 
-import i18n from '../../i18n'
-import gate from '../../gate'
-import style from '../style'
-import Loading from '../components/Loading'
-import { useAuthState } from '../../context/auth/authContext'
+import i18n from 'i18n'
+import gate from 'gate'
+import style from 'view/style'
+import Loading from 'hooks/Loading'
+import { useAuthState } from 'context/auth/authContext'
 
 function Home() {
   const { appStyle } = style

@@ -11,7 +11,9 @@ module.exports = {
           store: './app/store',
           routes: './app/routes',
           assets: './app/assets',
-          helpers: './app/helpers'
+          context: './app/context',
+          helpers: './app/helpers',
+          hooks: './app/view/hooks'          
         }
       }]    
     ],

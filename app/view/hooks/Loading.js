@@ -5,7 +5,7 @@ import LottieView from 'lottie-react-native'
 import { StyleSheet, View, Text } from 'react-native'
 
 import i18n from 'i18n'
-import style from '../style'
+import style from 'view/style'
 
 const lotties = [
   {
