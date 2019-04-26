@@ -33,10 +33,10 @@ $ react-native run-ios / run-android
   - Hooks
   - Documents  
   - Authentication flow
-  - Api Integration (gate)  
+  - Error Handling
   - Check Internet Connection Startup
   - Branches based on different routing strategies
-  - Error Handling
+  - Api Integration (gate)
     - I'm thinking of an standard to support Rest, GraphQl, Firebase, Parse, AWS and ...  
 
 License
