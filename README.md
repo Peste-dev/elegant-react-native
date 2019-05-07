@@ -1,13 +1,3 @@
-**Elegant** is a home-made Boilerplate for bootstrapping a [React Native] application.
-
-  - Based on latest RN (V 0.59.3)
-  - Using react-hooks
-  - State management by using React Context-API
-  - [React Navigation]
-  - [NativeBase]
-
-I use this package on production but for you I'm not sure if it's the best to choose till it reaches V1. So feel free to use but keep in mind there may be some structural changes, anyway to be honest I prefer to use my shit cause I couldn't find a better one to go on with :-)
-
 ### Installation
 
 Install [React Native] cli and requirements
