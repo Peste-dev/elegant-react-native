@@ -5,7 +5,9 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "react-native run-android",
-    "test": "jest"
+    "ios": "npx react-native run-ios",
+    "test": "jest",
+    "clean": "react-native-clean-project"
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.2.4",
