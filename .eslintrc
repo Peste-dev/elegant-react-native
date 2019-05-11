@@ -1,0 +1,67 @@
+{
+  "parser": "babel-eslint",
+  "plugins": [
+    "react",
+    "react-native",
+    "flowtype",
+    "jsx-a11y",
+    "import",
+    "prettier",
+    "sort-imports-es6-autofix",
+    "sort-keys-fix"
+  ],
+  "extends": [
+    "plugin:react-native/all",
+    "airbnb",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["app"],
+        "extensions": [
+          ".js",
+          ".android.js",
+          ".ios.js"
+        ]
+      }
+    }
+  },
+  "globals": {
+    "GLOBAL": true
+  },
+  "rules": {
+    "sort-keys-fix/sort-keys-fix": "error",
+    "global-require": "off",
+    "no-use-before-define": "off",
+    "no-console": "off",
+    "no-underscore-dangle": "off",
+    "function-paren-newline": "off",
+    "quotes": ["error", "single"],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".js"]
+      }
+    ],
+    "import/no-cycle": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "specialLink": ["to"]
+      }
+    ]
+  },
+  "env": {
+    "jest": true
+  }
+}
