@@ -3,7 +3,6 @@
   "plugins": [
     "react",
     "react-native",
-    "flowtype",
     "jsx-a11y",
     "import",
     "prettier",
