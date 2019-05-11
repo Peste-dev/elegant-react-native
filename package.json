@@ -4,10 +4,17 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "android": "react-native run-android",
+    "build": "cd android && ./gradlew assembleRelease",
+    "android": "npx react-native run-android",
     "ios": "npx react-native run-ios",
     "test": "jest",
+    "eslint": "eslint .",
     "clean": "react-native-clean-project"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.2.4",
@@ -27,10 +34,29 @@
     "@babel/plugin-proposal-decorators": "^7.4.0",
     "@babel/runtime": "^7.4.3",
     "babel-jest": "^24.7.1",
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-root-import": "^6.1.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-import-resolver-babel-plugin-root-import": "^1.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-native": "^3.3.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.3.0",
+    "eslint-plugin-sort-keys-fix": "^1.0.1",
     "jest": "^24.7.1",
     "metro-react-native-babel-preset": "^0.53.1",
-    "react-test-renderer": "16.8.3"
+    "prettier": "^1.14.3",
+    "react-native-clean-project": "^3.0.0",
+    "react-native-config": "^0.11.5",
+    "react-native-dotenv": "^0.2.0",
+    "react-test-renderer": "16.8.3",
+    "redux-devtools-extension": "^2.13.5"
   },
   "jest": {
     "preset": "react-native"
