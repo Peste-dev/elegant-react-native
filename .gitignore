@@ -24,7 +24,6 @@ project.xcworkspace
 
 # Android/IntelliJ
 #
-build/
 .idea
 .gradle
 local.properties
@@ -36,6 +35,9 @@ node_modules/
 npm-debug.log
 yarn-error.log
 yarn.lock
+
+# Environment Variables
+.env
 
 # BUCK
 buck-out/
