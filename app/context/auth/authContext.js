@@ -1,15 +1,26 @@
+import PropTypes from 'prop-types'
 import React, { createContext, useContext, useReducer } from 'react'
 import initialState from './state'
 import reducer from './reducer'
 
 export const AuthContext = createContext()
 
-export function AuthStateProvider(props) {
+export function AuthStateProvider({ children }) {
   return (
     <AuthContext.Provider value={useReducer(reducer, initialState)}>
-      {props.children}
+      { children }
     </AuthContext.Provider>
   )
 }
+
+AuthStateProvider.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.func
+  ]).isRequired
+}
+
+AuthStateProvider.defaultProps = {}
 
 export const useAuthState = () => useContext(AuthContext)

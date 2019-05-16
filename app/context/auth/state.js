@@ -1,8 +1,8 @@
-export default (initialState = {
-  user: {},
-  token: '',
+export default {
+  codeSent: false,
   error: false,
   isAuth: false,
-  codeSent: false,
   isAuthenticating: false,
-})
+  token: '',
+  user: {}
+}

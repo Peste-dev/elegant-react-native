@@ -1,29 +1,22 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-class token {
+class Token {
 
   constructor () {
     this._accessToken = null
   }
 
-  get() {
-    return new Promise((resolve, reject) => {
-      if (this._accessToken) return resolve(this._accessToken)
+  async get() {
+    if (this._accessToken) return Promise.resolve(this._accessToken)
 
-      AsyncStorage.getItem('ACCESS_TOKEN')
-        .then((token) => {
-          if (token) {
-            resolve(token)
-          } else {
-            resolve('')
-          }
-        })
-    })
+    const accessToken = await AsyncStorage.getItem('ACCESS_TOKEN')
+
+    return accessToken || ''
   }
 
-  set(token) {
-    this._accessToken = token
-    return AsyncStorage.setItem('ACCESS_TOKEN', token)
+  set(accessToken) {
+    this._accessToken = accessToken
+    return AsyncStorage.setItem('ACCESS_TOKEN', accessToken)
   }
 
   clear() {
@@ -32,4 +25,4 @@ class token {
   }
 }
 
-export default new token()
+export default new Token()

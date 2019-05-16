@@ -1,29 +1,25 @@
 import axios from 'axios'
 
 import tokenHelper from 'helpers/token'
-import config from 'helpers/config'
+import { apiUrl } from 'helpers/config'
 
-const client = axios.create({ baseURL: config.apiUrl, json: true })
+const client = axios.create({ baseURL: apiUrl, json: true })
 
-call = (method, url, data = {}) => {  
-  return new Promise((resolve, reject) => {
-    tokenHelper.get().then(token => {      
-      const headers = token === '' ? {} : { Authorization: `Bearer ${token}` }
+const call = async (method, url, data = {}) => {  
+  const token = await tokenHelper.get()
+  const headers = token === '' ? {} : { Authorization: `Bearer ${token}` }
 
-      client({
-        url,
-        data,
-        method,
-        headers
-      })
-      .then(response => resolve(response.data))
-      .catch(error => reject(error.response))
-    })
-  })
+  const $request = client({ data, headers, method, url })
+    .then(response => Promise.resolve(response.data))
+    .catch(error => Promise.reject(error.response))
+  
+  return $request
 }
 
 const auth = {
-  signOut (url) {
+  async signOut (url) {
+    const token = await tokenHelper.get()
+    
     token.clear()
     call('post', url)
   }
@@ -32,9 +28,9 @@ const auth = {
 export default {
   ...auth,
 
+  delete: (url, data = {}) => call('delete', url, data),
   get: (url, data = {}) => call('get', url, data),
-  put: (url, data = {}) => call('put', url, data),  
-  post: (url, data = {}) => call('post', url, data),
   patch: (url, data = {}) => call('patch', url, data),
-  delete: (url, data = {}) => call('delete', url, data)
+  post: (url, data = {}) => call('post', url, data),  
+  put: (url, data = {}) => call('put', url, data)  
 }

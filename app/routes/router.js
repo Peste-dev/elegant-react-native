@@ -1,15 +1,15 @@
 import { StackActions } from 'react-navigation'
 
-export default router = ({props, routeName, params = {}, child = null, childParams = {}}) => {
+const router = ({props, routeName, params = {}, child = null, childParams = {}}) => {
   const route = StackActions.push({
-    routeName,
-    params
+    params,
+    routeName    
   })
   
   if (child) {
-    childRoute = StackActions.push({
-      routeName: child,
-      params: childParams
+    const childRoute = StackActions.push({
+      params: childParams,
+      routeName: child      
     })
 
     route.action = childRoute
@@ -17,3 +17,5 @@ export default router = ({props, routeName, params = {}, child = null, childPara
 
   props.navigation.dispatch(route)
 }
+
+export default router

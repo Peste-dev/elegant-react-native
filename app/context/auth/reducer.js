@@ -21,101 +21,100 @@ function authReducer(state, action) {
     case SET_IS_AUTHENTICATING:
       return {
         ...state,
-        isAuthenticating: true,
         codeSent: false,
         error: false,
+        isAuthenticating: true
       }
     case SET_IS_AUTHENTICATING_WITHOUT_CODESENT_EFFECT:
       return {
         ...state,
-        isAuthenticating: true,
         error: false,
+        isAuthenticating: true
       }
     case IS_AUTHENTICATED_SUCCESS:
       return {
         ...state,
-        isAuthenticating: false,
         isAuth: true,
+        isAuthenticating: false        
       }
     case IS_AUTHENTICATED_FAILURE:
       return {
         ...state,
-        isAuthenticating: false,
-        isAuth: false,
         error: action.error.data,
+        isAuth: false,
+        isAuthenticating: false,
         token: '',
-        user: {},
+        user: {}
       }
     case REPLACE_USER_AND:
       return {
         ...state,
-
-        user: action.user,
+        user: action.user
       }
     case SIGN_IN_SUCCESS:
       return {
         ...state,
-        isAuthenticating: false,
         codeSent: true,
         error: false,
+        isAuthenticating: false        
       }
     case SIGN_IN_FAILURE:
       return {
         ...state,
-        isAuthenticating: false,
         error: action.error.data,
+        isAuthenticating: false        
       }
     case SIGN_IN_CONFIRMATION_SUCCESS:
       return {
         ...state,
-        isAuthenticating: false,
         codeSent: false,
-        isAuth: true,
         error: false,
+        isAuth: true,
+        isAuthenticating: false,
         token: action.data.token,
         user: action.data.user,
       }
     case SIGN_IN_CONFIRMATION_FAILURE:
       return {
         ...state,
-        isAuthenticating: false,
         error: action.error.data,
+        isAuthenticating: false
       }
     case SIGN_UP_SUCCESS:
       return {
         ...state,
-        isAuthenticating: false,
         codeSent: true,
         error: false,
+        isAuthenticating: false
       }
     case SIGN_UP_FAILURE:
       return {
         ...state,
-        isAuthenticating: false,
         error: action.error.data,
+        isAuthenticating: false
       }
     case SIGN_UP_CONFIRMATION_SUCCESS:
       return {
         ...state,
-        isAuthenticating: false,
         codeSent: false,
-        isAuth: true,
         error: false,
+        isAuth: true,
+        isAuthenticating: false,
         token: action.data.token,
         user: action.data.user,
       }
     case SIGN_UP_CONFIRMATION_FAILURE:
       return {
         ...state,
-        isAuthenticating: false,
         error: action.error.data,
+        isAuthenticating: false        
       }
     case SIGN_OUT_SUCCESS:
       return {
         ...state,
-        isAuthenticating: false,
-        isAuth: false,
         error: false,
+        isAuth: false,
+        isAuthenticating: false,
         token: '',
         user: {},
       }

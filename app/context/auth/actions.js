@@ -9,11 +9,11 @@ import {
 } from './types'
 
 export default {
-  isAuthenticated: () => ({ type: IS_AUTHENTICATED }),
-  signUp: data => ({ type: SIGN_UP, data }),
-  signUpConfirmation: data => ({ type: SIGN_UP_CONFIRMATION, data }),
-  signIn: data => ({ type: SIGN_IN, data }),
-  signInConfirmation: data => ({ type: SIGN_IN_CONFIRMATION, data }),
-  signOut: () => ({ type: SIGN_OUT }),
   clearErrors: () => ({ type: CLEAR_ERRORS }),
+  isAuthenticated: () => ({ type: IS_AUTHENTICATED }),
+  signIn: data => ({ data, type: SIGN_IN }),
+  signInConfirmation: data => ({ data, type: SIGN_IN_CONFIRMATION }),  
+  signOut: () => ({ type: SIGN_OUT }),
+  signUp: data => ({ data, type: SIGN_UP }),
+  signUpConfirmation: data => ({ data, type: SIGN_UP_CONFIRMATION })
 }

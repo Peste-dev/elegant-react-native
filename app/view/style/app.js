@@ -5,8 +5,27 @@ import theme from './theme'
 const { colors, fonts: { fontFamily } } = theme
 
 const styles = StyleSheet.create({
+  center: {
+    textAlign: 'center'
+  },
   container: {
     flex: 1
+  },
+  content: {
+    alignItems: 'center',
+    backgroundColor: colors.gray,
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    padding: 20
+  },
+  defaultLink: {
+    color: colors.link,
+    fontFamily    
+  },
+  defaultText: {
+    color: colors.font,
+    fontFamily    
   },
   font: {
     color: colors.font
@@ -14,43 +33,27 @@ const styles = StyleSheet.create({
   fontFamily: {
     fontFamily
   },
-  white: {
-    backgroundColor: 'white'
-  },
-  center: {
-    textAlign: 'center'
-  },
   headerIcon: {
-    fontSize: 25,
-    color: colors.link
-  },
-  content: {
-    flex: 1,
-    backgroundColor: '#eeeeee',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20
-  },
-  defaultText: {
-    fontFamily,
-    color: colors.font
-  },
-  defaultLink: {
-    fontFamily,
-    color: colors.link
-  },
-  whiteLink: {
-    fontFamily,
-    color: 'white'
+    color: colors.link,
+    fontSize: 25    
   },
   icon: {
+    color: colors.link,
     fontSize: 30,
     lineHeight: 50,
     paddingLeft: 10, 
-    paddingRight: 10,
-    color: colors.link
-  }
+    paddingRight: 10
+  },
+  white: {
+    backgroundColor: colors.white
+  },
+  whiteFont: {
+    color: colors.white
+  },
+  whiteLink: {
+    color: colors.white,
+    fontFamily    
+  }  
 })
 
 export default styles
