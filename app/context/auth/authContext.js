@@ -5,13 +5,11 @@ import reducer from './reducer'
 
 export const AuthContext = createContext()
 
-export function AuthStateProvider({ children }) {
-  return (
-    <AuthContext.Provider value={useReducer(reducer, initialState)}>
-      { children }
-    </AuthContext.Provider>
-  )
-}
+export const AuthStateProvider = ({ children }) => (
+  <AuthContext.Provider value={useReducer(reducer, initialState)}>
+    { children }
+  </AuthContext.Provider>
+)
 
 AuthStateProvider.propTypes = {
   children: PropTypes.oneOfType([

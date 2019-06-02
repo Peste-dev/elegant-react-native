@@ -5,13 +5,11 @@ import reducer from './reducer'
 
 export const AppContext = createContext()
 
-export function AppStateProvider({ children }) {
-  return (
-    <AppContext.Provider value={useReducer(reducer, initialState)}>
-      { children }
-    </AppContext.Provider>
-  )
-} 
+export const AppStateProvider = ({ children }) => (
+  <AppContext.Provider value={useReducer(reducer, initialState)}>
+    { children }
+  </AppContext.Provider>
+)
 
 AppStateProvider.propTypes = {
   children: PropTypes.oneOfType([

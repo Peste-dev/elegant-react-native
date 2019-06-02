@@ -1,29 +1,34 @@
 import React, { useEffect, useState } from 'react'
-import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import { Container, Header, Left, Right, Body, Title, Button, Icon } from 'native-base'
 
 import i18n from 'i18n'
 import gate from 'gate'
 import style from 'view/style'
+import { styleJoiner } from 'helpers/util'
 import Loading from 'view/components/Loading'
 
+import Item from './item'
+
 const Home = () => {
-  const { appStyle } = style
+  const { appStyle, homeStyle } = style
   const { appLang, homeLang } = i18n
 
   const [todos, setTodos] = useState([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const fetchData = () => {
-      gate.home()
-        .then(response => {
-          setTodos(response)
-          setLoading(false)
-        })
-        .catch(() => {})
+  const fetchData = async () => {
+    try {
+      const response = await gate.home()
+      
+      setTodos(response)
+      setLoading(false)
+    } catch {
+      // handling error
     }
+  }
 
+  useEffect(() => {
     fetchData()    
   }, [])
 
@@ -31,9 +36,7 @@ const Home = () => {
     console.log(text)
   }
 
-  return loading ? (
-    <Loading />
-  ) : (
+  return loading ? <Loading /> : (
     <Container style={appStyle.container}>
       <Header>
         <Left>
@@ -52,45 +55,20 @@ const Home = () => {
       </Header>
 
       <View style={appStyle.content}>
-        <View style={styles.flatListView}>
-          <Text style={[ appStyle.defaultText, styles.contentText ]} >
+        <View style={homeStyle.flatListView}>
+          <Text style={styleJoiner(appStyle.defaultText, homeStyle.contentText)} >
             { appLang.name }
           </Text>
           <FlatList
             data={todos}
-            style={styles.flatList}
-            renderItem={({ item}) => (
-              <TouchableOpacity style={styles.renderItemTouchable} >
-                <Text style={appStyle.whiteFont}>{`${item.id} - ${item.title}`}</Text>
-              </TouchableOpacity>
-            )}
+            style={homeStyle.flatList}            
             keyExtractor={item => item.id.toString()}
+            renderItem={({ item: {id, title} }) => <Item key={id} id={id} title={title} />}
           />
         </View>
       </View>
     </Container>
   )
 }
-
-const styles = StyleSheet.create({
-  contentText: {
-    fontSize: 25, 
-    fontWeight: '900',
-    marginBottom: 10, 
-    marginTop: 10    
-  },
-  flatList: {
-    marginBottom: 20 
-  },
-  flatListView: {
-    width: '100%'
-  },
-  renderItemTouchable: {
-    backgroundColor: style.theme.colors.link, 
-    borderRadius: 5, 
-    marginBottom: 5,
-    padding: 5    
-  }  
-})
 
 export default Home

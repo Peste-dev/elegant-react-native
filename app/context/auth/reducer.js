@@ -16,7 +16,7 @@ import {
   CLEAR_ERRORS,
 } from './types'
 
-function authReducer(state, action) {
+const authReducer = (state, action) => {
   switch (action.type) {
     case SET_IS_AUTHENTICATING:
       return {

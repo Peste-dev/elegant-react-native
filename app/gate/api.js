@@ -9,11 +9,13 @@ const call = async (method, url, data = {}) => {
   const token = await tokenHelper.get()
   const headers = token === '' ? {} : { Authorization: `Bearer ${token}` }
 
-  const $request = client({ data, headers, method, url })
-    .then(response => Promise.resolve(response.data))
-    .catch(error => Promise.reject(error.response))
-  
-  return $request
+  try {
+    const response = await client({ data, headers, method, url })
+
+    return Promise.resolve(response.data)    
+  } catch(error) {
+    return Promise.reject(error.response)
+  }
 }
 
 const auth = {
