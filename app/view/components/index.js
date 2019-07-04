@@ -17,6 +17,9 @@ module.exports =  {
   get Icon() {
     return require('native-base').Icon;
   },
+  get Item() {
+    return require('./Item').default;
+  },
   get Left() {
     return require('native-base').Left;
   },
