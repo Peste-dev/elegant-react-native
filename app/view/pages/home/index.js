@@ -12,12 +12,12 @@ import {
   Title,
   Button,
   Icon,
+  Item,
 } from 'view/components';
 import i18n from 'i18n';
 import gate from 'gate';
 import style from 'view/style';
 import { styleJoiner } from 'helpers/util';
-import Item from './item';
 
 const Home = () => {
   const { appStyle, homeStyle } = style
