@@ -1,14 +1,23 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, FlatList } from 'react-native'
-import { Container, Header, Left, Right, Body, Title, Button, Icon } from 'native-base'
-
-import i18n from 'i18n'
-import gate from 'gate'
-import style from 'view/style'
-import { styleJoiner } from 'helpers/util'
-import Loading from 'view/components/Loading'
-
-import Item from './item'
+import React, { useEffect, useState } from 'react';
+import {
+  View,
+  Text,
+  FlatList,
+  Loading,
+  Container,
+  Header,
+  Left,
+  Right,
+  Body,
+  Title,
+  Button,
+  Icon,
+} from 'view/components';
+import i18n from 'i18n';
+import gate from 'gate';
+import style from 'view/style';
+import { styleJoiner } from 'helpers/util';
+import Item from './item';
 
 const Home = () => {
   const { appStyle, homeStyle } = style
@@ -20,7 +29,7 @@ const Home = () => {
   const fetchData = async () => {
     try {
       const response = await gate.home()
-      
+
       setTodos(response)
       setLoading(false)
     } catch {
@@ -29,7 +38,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    fetchData()    
+    fetchData()
   }, [])
 
   const someAction = text => {
@@ -61,7 +70,7 @@ const Home = () => {
           </Text>
           <FlatList
             data={todos}
-            style={homeStyle.flatList}            
+            style={homeStyle.flatList}
             keyExtractor={item => item.id.toString()}
             renderItem={({ item: {id, title} }) => <Item key={id} id={id} title={title} />}
           />
