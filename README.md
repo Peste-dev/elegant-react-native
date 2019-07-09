@@ -11,6 +11,7 @@ cd elegant-react-native
 yarn
 nano app.json /* here we go to edit project name and displayName */
 react-native eject /* generate ios and android folders */
+react-native link
 react-native run-ios / run-android
 ```
 
