@@ -46,23 +46,7 @@ const Home = () => {
   }
 
   return loading ? <Loading /> : (
-    <Container style={appStyle.container}>
-      <Header>
-        <Left>
-          <Button transparent onPress={() => someAction('some action!')}>
-            <Icon name="paper-plane" style={appStyle.headerIcon} />
-          </Button>
-        </Left>
-        <Body>
-          <Title>{homeLang.title}</Title>
-        </Body>
-        <Right>
-          <Button transparent onPress={() => someAction('search!')}>
-            <Icon name="search" style={appStyle.headerIcon} />
-          </Button>
-        </Right>
-      </Header>
-
+    <View style={appStyle.container}>
       <View style={appStyle.content}>
         <View style={homeStyle.flatListView}>
           <Text style={styleJoiner(appStyle.defaultText, homeStyle.contentText)} >
@@ -76,7 +60,7 @@ const Home = () => {
           />
         </View>
       </View>
-    </Container>
+    </View>
   )
 }
 
