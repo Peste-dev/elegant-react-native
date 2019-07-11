@@ -4,20 +4,14 @@ import {
   Text,
   FlatList,
   Loading,
-  Container,
-  Header,
-  Left,
-  Right,
-  Body,
-  Title,
-  Button,
-  Icon,
   Item,
+  Appbar
 } from 'view/components';
 import i18n from 'i18n';
 import gate from 'gate';
 import style from 'view/style';
 import { styleJoiner } from 'helpers/util';
+
 
 const Home = () => {
   const { appStyle, homeStyle } = style
@@ -47,6 +41,11 @@ const Home = () => {
 
   return loading ? <Loading /> : (
     <View style={appStyle.container}>
+       <Appbar.Header>
+        <Appbar.Action onPress={()=>someAction('some action')} icon="email" />
+        <Appbar.Content title={homeLang.title} />
+        <Appbar.Action icon="search" />
+      </Appbar.Header>
       <View style={appStyle.content}>
         <View style={homeStyle.flatListView}>
           <Text style={styleJoiner(appStyle.defaultText, homeStyle.contentText)} >
