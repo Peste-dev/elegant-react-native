@@ -14,8 +14,8 @@ import { styleJoiner } from 'helpers/util';
 
 
 const Home = () => {
-  const { appStyle, homeStyle } = style
   const { appLang, homeLang } = i18n
+  const { appStyle, homeStyle } = style  
 
   const [todos, setTodos] = useState([])
   const [loading, setLoading] = useState(true)
@@ -46,6 +46,7 @@ const Home = () => {
         <Appbar.Content title={homeLang.title} />
         <Appbar.Action icon="search" />
       </Appbar.Header>
+      
       <View style={appStyle.content}>
         <View style={homeStyle.flatListView}>
           <Text style={styleJoiner(appStyle.defaultText, homeStyle.contentText)} >
@@ -54,6 +55,7 @@ const Home = () => {
           <FlatList
             data={todos}
             style={homeStyle.flatList}
+            showsVerticalScrollIndicator={false}
             keyExtractor={item => item.id.toString()}
             renderItem={({ item: {id, title} }) => <Item key={id} id={id} title={title} />}
           />
