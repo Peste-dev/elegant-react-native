@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { isEmpty } from 'lodash'
 
 import tokenHelper from 'helpers/token'
 import { apiUrl } from 'helpers/config'
@@ -7,10 +8,20 @@ const client = axios.create({ baseURL: apiUrl, json: true })
 
 const call = async (method, url, data = {}) => {  
   const token = await tokenHelper.get()
-  const headers = token === '' ? {} : { Authorization: `Bearer ${token}` }
+  
+  const headers = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json'
+  }
 
-  try {
-    const response = await client({ data, headers, method, url })
+  if (token !== '') headers.Authorization = `Bearer ${token}`
+
+  const request = { headers, method, url }
+  
+  if (!isEmpty(data)) request.data = data
+
+  try {        
+    const response = await client(request)
 
     return Promise.resolve(response.data)    
   } catch(error) {

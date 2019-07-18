@@ -24,7 +24,7 @@ const auth = {
 
 
 export default {
-  home: () => api.get('todos'),
+  getRepositories: query => api.get(`https://api.github.com/search/repositories?q=${query}&sort=stars`, {}, true),  
   // any: someId => api.get(`/any/${someId}`),
   // any: data => api.post('/any', data),
 

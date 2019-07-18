@@ -8,7 +8,6 @@ module.exports = {
     ['module-resolver', {
       alias: {
         assets: './app/assets',
-        context: './app/context',
         gate: './app/gate',
         helpers: './app/helpers',
         hooks: './app/view/hooks',
