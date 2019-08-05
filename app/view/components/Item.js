@@ -1,21 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Text, TouchableOpacity } from 'view/components'
+import { Text, TouchableOpacity, Image } from 'view/components'
 
 import style from 'view/style'
 
-const Item = ({id, title}) => {
+const Item = ({title, owner}) => {
   const { appStyle, homeStyle } = style
 
   return (
     <TouchableOpacity style={homeStyle.renderItemTouchable} >
-      <Text style={appStyle.whiteFont}>{`${id} - ${title}`}</Text>
+      <Image
+        source={{uri: owner.avatar_url}}
+        style={homeStyle.renderItemTouchableImage}
+      />
+
+      <Text style={appStyle.whiteFont}>{title}</Text>
     </TouchableOpacity>
   )
 }
 
 Item.propTypes = {
-  id: PropTypes.number.isRequired,
+  owner: PropTypes.object.isRequired,  // eslint-disable-line react/forbid-prop-types
   title: PropTypes.string.isRequired
 }
 

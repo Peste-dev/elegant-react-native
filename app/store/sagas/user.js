@@ -12,17 +12,17 @@ import { ActionTypes } from 'store/constants/index'
  */
 export function* login() {
   try {
-    yield delay(400);
+    yield delay(400)
 
     yield put({
-      type: ActionTypes.USER_LOGIN_SUCCESS,
-    });
+      type: ActionTypes.USER_LOGIN_SUCCESS
+    })
   } catch (err) {
     /* istanbul ignore next */
     yield put({
       payload: err,
-      type: ActionTypes.USER_LOGIN_FAILURE,
-    });
+      type: ActionTypes.USER_LOGIN_FAILURE
+    })
   }
 }
 
@@ -31,17 +31,17 @@ export function* login() {
  */
 export function* logout() {
   try {
-    yield delay(200);
+    yield delay(200)
 
     yield put({
-      type: ActionTypes.USER_LOGOUT_SUCCESS,
-    });
+      type: ActionTypes.USER_LOGOUT_SUCCESS
+    })
   } catch (err) {
     /* istanbul ignore next */
     yield put({
       payload: err,
-      type: ActionTypes.USER_LOGOUT_FAILURE,
-    });
+      type: ActionTypes.USER_LOGOUT_FAILURE
+    })
   }
 }
 
@@ -51,6 +51,6 @@ export function* logout() {
 export default function* root() {
   yield all([
     takeLatest(ActionTypes.USER_LOGIN, login),
-    takeLatest(ActionTypes.USER_LOGOUT, logout),
-  ]);
+    takeLatest(ActionTypes.USER_LOGOUT, logout)
+  ])
 }

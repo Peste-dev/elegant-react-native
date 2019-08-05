@@ -3,11 +3,11 @@
  * @module Actions/User
  * @desc User Actions
  */
-import { createActions } from 'redux-actions';
+import { createActions } from 'redux-actions'
 
-import { ActionTypes } from 'store/constants/index';
+import { ActionTypes } from 'store/constants/index'
 
 export const { userLogin: login, userLogout: logOut } = createActions({
   [ActionTypes.USER_LOGIN]: () => ({}),
-  [ActionTypes.USER_LOGOUT]: () => ({}),
-});
+  [ActionTypes.USER_LOGOUT]: () => ({})
+})

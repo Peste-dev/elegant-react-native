@@ -1,7 +1,9 @@
+/* eslint-disable react-native/no-raw-text */
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Animated } from 'react-native'
+import { Button } from 'react-native-paper'
 
 import {
   View,
@@ -17,7 +19,7 @@ import style from 'view/style'
 import { STATUS } from 'store/constants/index'
 import { getRepos } from 'store/actions/index'
 
-const Home = ({ dispatch, github }) => {
+const Home = ({ dispatch, github }) => {  
   const { homeLang } = i18n
   const { appStyle, homeStyle } = style  
 
@@ -27,10 +29,10 @@ const Home = ({ dispatch, github }) => {
 
   useEffect(() => {
     dispatch(getRepos(query))
-  }, [])
+  }, [query])
 
   useEffect(() => {
-    if (githubStatus === 'running' && github.repos.status === 'ready') {
+    if (githubStatus === STATUS.RUNNING && github.repos.status === STATUS.READY) {
       Animated.timing(scaleValue, {
         delay: github.repos.data[query] * 350,
         duration : 600,
@@ -38,7 +40,7 @@ const Home = ({ dispatch, github }) => {
       }).start()
     }
 
-    setGithubStatus(github.repos.status)    
+    setGithubStatus(github.repos.status)
   }, [github])  
 
   const someAction = text => {
@@ -52,13 +54,22 @@ const Home = ({ dispatch, github }) => {
        <Appbar.Header>
         <Appbar.Action onPress={()=>someAction('some action')} icon="email" />
         <Appbar.Content title={homeLang.title} />
-        <Appbar.Action icon="search" />
+        <Appbar.Action onPress={()=>someAction('search')} icon="search" />
       </Appbar.Header>
       
       <View style={appStyle.content}>
         <View style={homeStyle.flatListView}>
           <View style={homeStyle.logoView}>
             <Image style={homeStyle.logo} source={require('assets/images/logo.png')} />
+          </View>
+
+          <View style={homeStyle.toggleArea}>
+            <Button mode="outlined" onPress={() => setQuery('react')} style={homeStyle.toggleAreaBtn}>
+              React
+            </Button>
+            <Button mode="outlined" onPress={() => setQuery('react-native')} style={homeStyle.toggleAreaBtn}>
+              React Native
+            </Button>
           </View>
 
           <View style={homeStyle.flatList}>
@@ -71,7 +82,7 @@ const Home = ({ dispatch, github }) => {
                   data={data}
                   showsVerticalScrollIndicator={false}
                   keyExtractor={item => item.id.toString()}
-                  renderItem={({ item: {id, name} }) => <Item key={id} id={id} title={name} />}
+                  renderItem={({ item: {id, name, owner} }) => <Item key={id} title={name} owner={owner} />}
                 />
               </Animated.View>
             )
@@ -85,7 +96,7 @@ const Home = ({ dispatch, github }) => {
 
 Home.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  github: PropTypes.object.isRequired,
+  github: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 }
 
 function mapStateToProps(state) {

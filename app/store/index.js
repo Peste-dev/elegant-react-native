@@ -13,7 +13,7 @@ const reducer = persistReducer(
     storage, // storage is now required
     whitelist: ['app', 'user'],
   },
-  combineReducers({ ...rootReducer }),
+  combineReducers({ ...rootReducer })
 )
 
 /* istanbul ignore next */
@@ -24,7 +24,7 @@ const configStore = (initialState = {}) => {
 
   return {
     persistor: persistStore(store),
-    store,
+    store
   }
 }
 

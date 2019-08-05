@@ -13,13 +13,11 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   flatList: {
-    flex: 4
+    flex: 6
   },
   flatListView: {
-    // alignItems: 'center',
     alignSelf: 'stretch',
-    // justifyContent: 'space-between',
-    flex: 1,
+    flex: 2,
     width: '100%'
   },
   logo: {
@@ -34,10 +32,27 @@ const styles = StyleSheet.create({
     paddingVertical: 10
   },
   renderItemTouchable: {
+    alignItems: 'center', 
     backgroundColor: colors.link, 
-    borderRadius: 5, 
+    borderRadius: 5,
+    flexDirection: 'row',
     marginBottom: 5,
-    padding: 5    
+    padding: 5
+  },
+  renderItemTouchableImage: { 
+    borderRadius: 5, 
+    height: 30,
+    marginRight: 10,
+    width: 30
+  },
+  toggleArea: {
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around'
+  },
+  toggleAreaBtn: {
+    width: 150
   }
 })
 

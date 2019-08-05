@@ -24,7 +24,7 @@ const auth = {
 
 
 export default {
-  getRepositories: query => api.get(`https://api.github.com/search/repositories?q=${query}&sort=stars`, {}, true),  
+  getRepositories: query => api.get(`/search/repositories?q=${query}&sort=stars`, {}),  
   // any: someId => api.get(`/any/${someId}`),
   // any: data => api.post('/any', data),
 
