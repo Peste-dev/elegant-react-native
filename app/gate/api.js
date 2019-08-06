@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { isEmpty } from 'lodash'
+import isEmpty from 'lodash/isEmpty'
 
 import tokenHelper from 'helpers/token'
 import { apiUrl } from 'helpers/config'
