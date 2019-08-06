@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore, compose, combineReducers } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import rootSaga from 'store/sagas/index'
 import rootReducer from 'store/reducers/index'
@@ -10,7 +10,7 @@ import middleware, { sagaMiddleware } from './middleware'
 const reducer = persistReducer(
   {
     key: 'elegant', // key is required
-    storage, // storage is now required
+    storage: AsyncStorage, // storage is now required
     whitelist: ['app', 'user'],
   },
   combineReducers({ ...rootReducer })
