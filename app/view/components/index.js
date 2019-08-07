@@ -1,6 +1,12 @@
 module.exports = {
+  get Appbar() {
+    return require('react-native-paper').Appbar
+  },
   get FlatList() {
     return require('react-native').FlatList
+  },
+  get Image() {
+    return require('react-native').Image
   },
   get Item() {
     return require('./Item').default
@@ -16,8 +22,5 @@ module.exports = {
   },
   get View() {
     return require('react-native').View
-  },
-  get Appbar() {
-    return require('react-native-paper').Appbar
-  },
+  }
 }
