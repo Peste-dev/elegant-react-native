@@ -12,11 +12,14 @@ yarn
 nano app.json /* here we go to edit project name and displayName */
 react-native eject /* generate ios and android folders */
 react-native link
-react-native run-ios / run-android
+react-native run-ios / npx jetify & react-native run-android
 ```
 
 ### Additional Steps
   - [React Native Gesture Handler]
+  - Add this to command in android gradle.properties
+    android.useAndroidX=true
+    android.enableJetifier=true
 
 
 License
