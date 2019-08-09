@@ -17,7 +17,7 @@ react-native run-ios / npx jetify & react-native run-android
 
 ### Additional Steps
   - [React Native Gesture Handler]
-  - Add this to command in android gradle.properties
+  - Add this two command in android gradle.properties
     ```
     android.useAndroidX=true
     android.enableJetifier=true
