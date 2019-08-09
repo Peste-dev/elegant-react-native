@@ -989,6 +989,11 @@
     xcode "^2.0.0"
     xmldoc "^0.4.0"
 
+"@react-native-community/netinfo@^4.1.2":
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-4.1.4.tgz#512be0395bab6f2432c6e26d7a00ace3c78e05ff"
+  integrity sha512-Iry24dLG0/oDWa60pjYbCcKVxcnvIvOl9PiB1WHvC0Zsykl1gT7dVeW7bWY4X98ZUb6+gVd4CekZiP7URQBeLQ==
+
 "@react-navigation/core@~3.4.1":
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.4.2.tgz#bec563e94fde40fbab3730cdc97f22afbb2a1498"
@@ -4307,6 +4312,11 @@ jest@^24.8.0:
     import-local "^2.0.0"
     jest-cli "^24.8.0"
 
+jetifier@^1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/jetifier/-/jetifier-1.6.3.tgz#61a95b29aefddfe3b6d81ee956f5e99f8b9cba19"
+  integrity sha512-i0rb2nHVPZDPzFhgs9+yYxEDMh2z0iSHRD3vBQmvn98wlgWKwhmU2F3MUEEXfK+MLnKwLKqsCTvlcS1+CpDTUg==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -6013,6 +6023,17 @@ react-native-gesture-handler@^1.3.0:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-offline@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-offline/-/react-native-offline-5.0.0.tgz#981a73c9f2075ad458cbc38652717a955e960a92"
+  integrity sha512-VaUQzuhx7SRFUfirCT6USMQkuqZWrlW3BlKHjiqUaSvQ794tmegF5uvyVFSpwIiMhv69aIU0kxfMV+o7EqLb5g==
+  dependencies:
+    "@react-native-community/netinfo" "^4.1.2"
+    lodash "^4.17.11"
+    react-redux "^6.0.0 || ^7.0.0"
+    redux "4.x"
+    redux-saga "^1.0.2"
+
 react-native-paper@^2.16.0:
   version "2.16.0"
   resolved "https://registry.yarnpkg.com/react-native-paper/-/react-native-paper-2.16.0.tgz#5a9edd5615bb010ec0d29cbfd5524c2944b2505d"
@@ -6164,7 +6185,7 @@ react-proxy@^1.1.7:
     lodash "^4.6.1"
     react-deep-force-update "^1.0.0"
 
-react-redux@^7.1.0:
+"react-redux@^6.0.0 || ^7.0.0", react-redux@^7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.1.0.tgz#72af7cf490a74acdc516ea9c1dd80e25af9ea0b2"
   integrity sha512-hyu/PoFK3vZgdLTg9ozbt7WF3GgX5+Yn3pZm5/96/o4UueXA+zj08aiSC9Mfj2WtD1bvpIb3C5yvskzZySzzaw==
@@ -6326,14 +6347,14 @@ redux-persist@^5.10.0:
   resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-5.10.0.tgz#5d8d802c5571e55924efc1c3a9b23575283be62b"
   integrity sha512-sSJAzNq7zka3qVHKce1hbvqf0Vf5DuTVm7dr4GtsqQVOexnrvbV47RWFiPxQ8fscnyiuWyD2O92DOxPl0tGCRg==
 
-redux-saga@^1.0.5:
+redux-saga@^1.0.2, redux-saga@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-1.0.5.tgz#03317261bc5fa7ee2ecb778f4e4848f573557bbb"
   integrity sha512-ytGFtaHyz6NQMQp7/LpQ/6CtOkbPRCcAeljUpc4c95hRm5U6dFvrRiZHeBPuQZ56L3oXfTX3hiYh8/3ZudsiNg==
   dependencies:
     "@redux-saga/core" "^1.0.3"
 
-"redux@>=0.10 <5", redux@^4.0.4:
+redux@4.x, "redux@>=0.10 <5", redux@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
   integrity sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==
