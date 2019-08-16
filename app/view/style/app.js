@@ -57,6 +57,9 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontFamily,
   },
+  header: {
+    backgroundColor: '#13a77f',
+  },
 });
 
 export default styles;

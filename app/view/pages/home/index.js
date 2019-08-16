@@ -46,7 +46,7 @@ const Home = ({dispatch, github}) => {
 
   return (
     <View style={appStyle.container}>
-      <Appbar.Header>
+      <Appbar.Header style={appStyle.header}>
         <Appbar.Action onPress={() => someAction('some action')} icon="email" />
         <Appbar.Content title={homeLang.title} />
         <Appbar.Action onPress={() => someAction('search')} icon="search" />
@@ -64,12 +64,14 @@ const Home = ({dispatch, github}) => {
           <View style={homeStyle.toggleArea}>
             <Button
               mode="outlined"
+              color={'#13a77f'}
               onPress={() => setQuery('react')}
               style={homeStyle.toggleAreaBtn}>
               React
             </Button>
             <Button
               mode="outlined"
+              color={'#13a77f'}
               onPress={() => setQuery('react-native')}
               style={homeStyle.toggleAreaBtn}>
               React Native
@@ -102,7 +104,7 @@ Home.propTypes = {
   dispatch: PropTypes.func.isRequired,
   github: PropTypes.shape({
     repos: PropTypes.shape({
-      data: PropTypes.array.isRequired,
+      data: PropTypes.object.isRequired,
     }).isRequired,
   }).isRequired,
 };
