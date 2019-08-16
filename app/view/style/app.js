@@ -1,15 +1,18 @@
-import { StyleSheet } from 'react-native'
+import {StyleSheet} from 'react-native';
 
-import theme from './theme'
+import theme from './theme';
 
-const { colors, fonts: { fontFamily } } = theme
+const {
+  colors,
+  fonts: {fontFamily},
+} = theme;
 
 const styles = StyleSheet.create({
   center: {
-    textAlign: 'center'
+    textAlign: 'center',
   },
   container: {
-    flex: 1
+    flex: 1,
   },
   content: {
     alignItems: 'center',
@@ -17,43 +20,43 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    padding: 20
+    padding: 20,
   },
   defaultLink: {
     color: colors.link,
-    fontFamily    
+    fontFamily,
   },
   defaultText: {
     color: colors.font,
-    fontFamily    
+    fontFamily,
   },
   font: {
-    color: colors.font
+    color: colors.font,
   },
   fontFamily: {
-    fontFamily
+    fontFamily,
   },
   headerIcon: {
     color: colors.link,
-    fontSize: 25    
+    fontSize: 25,
   },
   icon: {
     color: colors.link,
     fontSize: 30,
     lineHeight: 50,
-    paddingLeft: 10, 
-    paddingRight: 10
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   white: {
-    backgroundColor: colors.white
+    backgroundColor: colors.white,
   },
   whiteFont: {
-    color: colors.white
+    color: colors.white,
   },
   whiteLink: {
     color: colors.white,
-    fontFamily    
-  }  
-})
+    fontFamily,
+  },
+});
 
-export default styles
+export default styles;

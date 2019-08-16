@@ -1,4 +1,4 @@
-export default {   
+export default {
   loading: 'Loading',
-  name: 'Elegant'
-}
+  name: 'Elegant',
+};

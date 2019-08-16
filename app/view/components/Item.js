@@ -1,14 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Text, TouchableOpacity, Image } from 'view/components'
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Text, TouchableOpacity, Image} from 'view/components';
 
-import style from 'view/style'
+import style from 'view/style';
 
 const Item = ({title, owner}) => {
-  const { appStyle, homeStyle } = style
+  const {appStyle, homeStyle} = style;
 
   return (
-    <TouchableOpacity style={homeStyle.renderItemTouchable} >
+    <TouchableOpacity style={homeStyle.renderItemTouchable}>
       <Image
         source={{uri: owner.avatar_url}}
         style={homeStyle.renderItemTouchableImage}
@@ -16,12 +16,14 @@ const Item = ({title, owner}) => {
 
       <Text style={appStyle.whiteFont}>{title}</Text>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 Item.propTypes = {
-  owner: PropTypes.object.isRequired,  // eslint-disable-line react/forbid-prop-types
-  title: PropTypes.string.isRequired
-}
+  owner: PropTypes.shape({
+    avatar_url: PropTypes.string.isRequired,
+  }).isRequired,
+  title: PropTypes.string.isRequired,
+};
 
-export default Item
+export default Item;

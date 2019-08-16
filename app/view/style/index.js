@@ -1,11 +1,11 @@
-import app from './app'
-import auth from './auth'
-import home from './home'
-import theme from './theme'
+import app from './app';
+import auth from './auth';
+import home from './home';
+import theme from './theme';
 
-export default {  
+export default {
   appStyle: app,
   authStyle: auth,
   homeStyle: home,
-  theme
-}
+  theme,
+};

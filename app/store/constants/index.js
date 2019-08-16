@@ -1,4 +1,4 @@
-import keyMirror from 'fbjs/lib/keyMirror'
+import keyMirror from 'fbjs/lib/keyMirror';
 
 /**
  * @namespace Constants
@@ -22,8 +22,8 @@ export const ActionTypes = keyMirror({
   USER_LOGIN_SUCCESS: undefined,
   USER_LOGOUT: undefined,
   USER_LOGOUT_FAILURE: undefined,
-  USER_LOGOUT_SUCCESS: undefined
-})
+  USER_LOGOUT_SUCCESS: undefined,
+});
 
 /**
  * @constant {Object} STATUS
@@ -34,5 +34,5 @@ export const STATUS = {
   IDLE: 'idle',
   READY: 'ready',
   RUNNING: 'running',
-  SUCCESS: 'success'
-}
+  SUCCESS: 'success',
+};

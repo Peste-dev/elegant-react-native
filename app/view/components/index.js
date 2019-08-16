@@ -1,26 +1,26 @@
 module.exports = {
   get Appbar() {
-    return require('react-native-paper').Appbar
+    return require('react-native-paper').Appbar;
   },
   get FlatList() {
-    return require('react-native').FlatList
+    return require('react-native').FlatList;
   },
   get Image() {
-    return require('react-native').Image
+    return require('react-native').Image;
   },
   get Item() {
-    return require('./Item').default
+    return require('./Item').default;
   },
   get Loading() {
-    return require('./Loading').default
+    return require('./Loading').default;
   },
   get Text() {
-    return require('react-native').Text
+    return require('react-native').Text;
   },
   get TouchableOpacity() {
-    return require('react-native').TouchableOpacity
+    return require('react-native').TouchableOpacity;
   },
   get View() {
-    return require('react-native').View
-  }
-}
+    return require('react-native').View;
+  },
+};

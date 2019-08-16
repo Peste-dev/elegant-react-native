@@ -1,21 +1,27 @@
-import { StackActions } from 'react-navigation'
+import {StackActions} from 'react-navigation';
 
-const router = ({props, routeName, params = {}, child = null, childParams = {}}) => {
+const router = ({
+  props,
+  routeName,
+  params = {},
+  child = null,
+  childParams = {},
+}) => {
   const route = StackActions.push({
     params,
-    routeName    
-  })
-  
+    routeName,
+  });
+
   if (child) {
     const childRoute = StackActions.push({
       params: childParams,
-      routeName: child      
-    })
+      routeName: child,
+    });
 
-    route.action = childRoute
+    route.action = childRoute;
   }
 
-  props.navigation.dispatch(route)
-}
+  props.navigation.dispatch(route);
+};
 
-export default router
+export default router;
