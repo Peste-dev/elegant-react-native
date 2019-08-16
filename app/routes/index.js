@@ -1,6 +1,6 @@
-import { createAppContainer, createStackNavigator } from 'react-navigation'
+import {createAppContainer, createStackNavigator} from 'react-navigation';
 
-import HomeScreen from 'view/pages/home'
+import HomeScreen from 'view/pages/home';
 
 const AppNavigator = createStackNavigator(
   {
@@ -10,6 +10,6 @@ const AppNavigator = createStackNavigator(
     headerMode: 'none',
     initialRouteName: 'Home',
   },
-)
+);
 
-export default createAppContainer(AppNavigator)
+export default createAppContainer(AppNavigator);

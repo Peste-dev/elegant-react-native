@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 
-export const styleJoiner = (...args) => StyleSheet.flatten(args)
+export const styleJoiner = (...args) => StyleSheet.flatten(args);
 
-export default {}
+export default {};

@@ -1,5 +1,5 @@
-export default { 
+export default {
   signIn: 'SignIn',
   signOut: 'SignOut',
-  signUp: 'SignUp'
-}
+  signUp: 'SignUp',
+};

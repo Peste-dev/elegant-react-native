@@ -3,10 +3,10 @@
  * @desc GitHub
  */
 
-import { all, call, put, takeLatest } from 'redux-saga/effects'
+import {all, call, put, takeLatest} from 'redux-saga/effects';
 
-import gate from 'gate'
-import { ActionTypes } from 'store/constants/index'
+import gate from 'gate';
+import {ActionTypes} from 'store/constants/index';
 
 /**
  * Get Repos
@@ -14,12 +14,12 @@ import { ActionTypes } from 'store/constants/index'
  * @param {Object} action
  *
  */
-export function* getRepos({ payload }) {
+export function* getRepos({payload}) {
   try {
-    const response = yield call(gate.getRepositories, payload.query)
-    
+    const response = yield call(gate.getRepositories, payload.query);
+
     yield put({
-      payload: { data: response.items },
+      payload: {data: response.items},
       type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
     });
   } catch (err) {

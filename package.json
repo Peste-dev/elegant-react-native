@@ -45,6 +45,7 @@
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
     "react-native-dotenv": "^0.2.0",
     "react-test-renderer": "16.8.6",

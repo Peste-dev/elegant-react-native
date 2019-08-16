@@ -1,12 +1,12 @@
-import api from './api'
+import api from './api';
 
 const methods = {
   delete: (url, data = {}) => api.delete(url, data),
   get: (url, data = {}) => api.get(url, data),
   patch: (url, data = {}) => api.patch(url, data),
   post: (url, data = {}) => api.post(url, data),
-  put: (url, data = {}) => api.put(url, data)
-}
+  put: (url, data = {}) => api.put(url, data),
+};
 
 const auth = {
   checkMe: () => api.get('check/me'),
@@ -17,17 +17,17 @@ const auth = {
   signInConfirmation: data => api.post('sign-in-confirmation', data),
 
   signOut: () => api.signOut('sign-out'),
-  
-  signUp: data => api.post('sign-up', data), 
-  signUpConfirmation: data => api.post('sign-up-confirmation', data)
-}
 
+  signUp: data => api.post('sign-up', data),
+  signUpConfirmation: data => api.post('sign-up-confirmation', data),
+};
 
 export default {
-  getRepositories: query => api.get(`/search/repositories?q=${query}&sort=stars`, {}),  
+  getRepositories: query =>
+    api.get(`/search/repositories?q=${query}&sort=stars`, {}),
   // any: someId => api.get(`/any/${someId}`),
   // any: data => api.post('/any', data),
 
   ...methods,
-  ...auth
-}
+  ...auth,
+};
