@@ -23,4 +23,10 @@ module.exports = {
   get View() {
     return require('react-native').View;
   },
+  get Button() {
+    return require('react-native-paper').Button;
+  },
+  get TextInput() {
+    return require('react-native-paper').TextInput;
+  },
 };

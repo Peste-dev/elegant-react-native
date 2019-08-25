@@ -1,4 +1,4 @@
 export default {
-  loading: 'Loading',
+  loading: 'loading...',
   name: 'Elegant',
 };

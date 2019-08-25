@@ -1,59 +1,40 @@
-import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
-import {connect} from 'react-redux';
-import {Animated} from 'react-native';
-import {Button} from 'react-native-paper';
+import React from 'react';
+import {useSelector, useDispatch} from 'react-redux';
+import {useNavigation} from 'react-navigation-hooks';
 
-import {View, Image, FlatList, Loading, Item, Appbar} from 'view/components';
 import i18n from 'i18n';
 import style from 'view/style';
+import {styleJoiner} from 'helpers/util';
+import {View, Image, Appbar, Button} from 'view/components';
 
-import {STATUS} from 'store/constants/index';
-import {getRepos} from 'store/actions/index';
+import {selectUser} from 'store/selectors/user';
+import {login, logout} from 'store/reducers/user';
 
-const Home = ({dispatch, github}) => {
-  const {homeLang} = i18n;
+const Home = () => {
+  const {appLang, homeLang, authLang} = i18n;
   const {appStyle, homeStyle} = style;
 
-  const [query, setQuery] = useState('react');
-  const [scaleValue] = useState(new Animated.Value(0));
-  const [githubStatus, setGithubStatus] = useState('idle');
+  const dispatch = useDispatch();
+  const {navigate} = useNavigation();
 
-  useEffect(() => {
-    dispatch(getRepos(query));
-  }, [dispatch, query]);
+  const user = useSelector(selectUser);
 
-  useEffect(() => {
-    if (
-      githubStatus === STATUS.RUNNING &&
-      github.repos.status === STATUS.READY
-    ) {
-      Animated.timing(scaleValue, {
-        delay: github.repos.data[query] * 350,
-        duration: 600,
-        toValue: 1,
-      }).start();
+  const _toggleUserStatus = () => {
+    if (user.loggedIn) {
+      dispatch(logout());
+    } else {
+      dispatch(login());
     }
-
-    setGithubStatus(github.repos.status);
-  }, [github, githubStatus, query, scaleValue]);
-
-  const someAction = text => {
-    console.log(text);
   };
-
-  const data = github.repos.data[query] || [];
 
   return (
     <View style={appStyle.container}>
       <Appbar.Header style={appStyle.header}>
-        <Appbar.Action onPress={() => someAction('some action')} icon="email" />
         <Appbar.Content title={homeLang.title} />
-        <Appbar.Action onPress={() => someAction('search')} icon="search" />
       </Appbar.Header>
 
       <View style={appStyle.content}>
-        <View style={homeStyle.flatListView}>
+        <View style={homeStyle.HomeView}>
           <View style={homeStyle.logoView}>
             <Image
               style={homeStyle.logo}
@@ -61,38 +42,42 @@ const Home = ({dispatch, github}) => {
             />
           </View>
 
-          <View style={homeStyle.toggleArea}>
-            <Button
-              mode="outlined"
-              color={'#13a77f'}
-              onPress={() => setQuery('react')}
-              style={homeStyle.toggleAreaBtn}>
-              React
-            </Button>
-            <Button
-              mode="outlined"
-              color={'#13a77f'}
-              onPress={() => setQuery('react-native')}
-              style={homeStyle.toggleAreaBtn}>
-              React Native
-            </Button>
-          </View>
+          <View style={homeStyle.buttonArea}>
+            <View style={homeStyle.buttonAreaChild}>
+              <Button
+                mode="outlined"
+                color={'#13a77f'}
+                disabled={user.onCheck}
+                onPress={() => _toggleUserStatus()}
+                style={appStyle.button}>
+                {user.onCheck
+                  ? appLang.loading
+                  : user.loggedIn
+                  ? authLang.signOut
+                  : authLang.signIn}
+              </Button>
+            </View>
 
-          <View style={homeStyle.flatList}>
-            {!data.length ? (
-              <Loading />
-            ) : (
-              <Animated.View style={{opacity: scaleValue}}>
-                <FlatList
-                  data={data}
-                  showsVerticalScrollIndicator={false}
-                  keyExtractor={item => item.id.toString()}
-                  renderItem={({item: {id, name, owner}}) => (
-                    <Item key={id} title={name} owner={owner} />
-                  )}
-                />
-              </Animated.View>
-            )}
+            <View
+              style={styleJoiner(
+                homeStyle.buttonAreaChild,
+                homeStyle.buttonAreaChildColumn,
+              )}>
+              <Button
+                mode="outlined"
+                color={'#13a77f'}
+                onPress={() => navigate('Todos')}
+                style={appStyle.button}>
+                Todos
+              </Button>
+              <Button
+                mode="outlined"
+                color={'#13a77f'}
+                onPress={() => navigate('Github')}
+                style={appStyle.button}>
+                Async Redux
+              </Button>
+            </View>
           </View>
         </View>
       </View>
@@ -100,17 +85,4 @@ const Home = ({dispatch, github}) => {
   );
 };
 
-Home.propTypes = {
-  dispatch: PropTypes.func.isRequired,
-  github: PropTypes.shape({
-    repos: PropTypes.shape({
-      data: PropTypes.object.isRequired,
-    }).isRequired,
-  }).isRequired,
-};
-
-function mapStateToProps(state) {
-  return {github: state.github};
-}
-
-export default connect(mapStateToProps)(Home);
+export default Home;

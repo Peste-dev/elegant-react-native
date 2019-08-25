@@ -1,7 +1,13 @@
-import github from './github';
-import user from './user';
+import {combineReducers} from 'redux';
 
-export default {
-  ...github,
-  ...user,
-};
+import userReducer from './user';
+import todosReducer from './todos';
+import githubReducer from './github';
+
+const rootReducers = combineReducers({
+  user: userReducer,
+  todos: todosReducer,
+  github: githubReducer,
+});
+
+export default rootReducers;

@@ -2,9 +2,9 @@ import axios from 'axios';
 import isEmpty from 'lodash/isEmpty';
 
 import tokenHelper from 'helpers/token';
-import {apiUrl} from 'helpers/config';
+import {API_URL} from 'react-native-dotenv';
 
-const client = axios.create({baseURL: apiUrl, json: true});
+const client = axios.create({baseURL: API_URL, json: true});
 
 const call = async (method, url, data = {}) => {
   const token = await tokenHelper.get();

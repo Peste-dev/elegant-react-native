@@ -1,39 +1,32 @@
-/**
- * @module Sagas/GitHub
- * @desc GitHub
- */
-
 import {all, call, put, takeLatest} from 'redux-saga/effects';
 
 import gate from 'gate';
-import {ActionTypes} from 'store/constants/index';
+import i18n from 'i18n';
 
-/**
- * Get Repos
- *
- * @param {Object} action
- *
- */
-export function* getRepos({payload}) {
+import {
+  getRepos,
+  getReposSuccess,
+  getReposFailure,
+} from 'store/reducers/github';
+
+const {githubLang} = i18n;
+
+function* getReposSaga({payload}) {
   try {
     const response = yield call(gate.getRepositories, payload.query);
 
-    yield put({
-      payload: {data: response.items},
-      type: ActionTypes.GITHUB_GET_REPOS_SUCCESS,
-    });
+    yield put({payload: {data: response.items}, type: getReposSuccess.type});
   } catch (err) {
-    /* istanbul ignore next */
-    yield put({
-      payload: err,
-      type: ActionTypes.GITHUB_GET_REPOS_FAILURE,
-    });
+    let text = githubLang.requestError;
+
+    if (err && err.data && err.data.message) {
+      text = err.data.message;
+    }
+
+    yield put({payload: {text}, type: getReposFailure.type});
   }
 }
 
-/**
- * GitHub Sagas
- */
 export default function* root() {
-  yield all([takeLatest(ActionTypes.GITHUB_GET_REPOS, getRepos)]);
+  yield all([takeLatest(getRepos.type, getReposSaga)]);
 }

@@ -1,21 +1,7 @@
 import {StyleSheet} from 'react-native';
 
-import theme from './theme';
-
-const {colors} = theme;
-
 const styles = StyleSheet.create({
-  contentText: {
-    fontSize: 25,
-    fontWeight: '900',
-    marginBottom: 10,
-    marginTop: 10,
-    textAlign: 'center',
-  },
-  flatList: {
-    flex: 6,
-  },
-  flatListView: {
+  HomeView: {
     alignSelf: 'stretch',
     flex: 2,
     width: '100%',
@@ -31,28 +17,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 10,
   },
-  renderItemTouchable: {
-    alignItems: 'center',
-    backgroundColor: colors.link,
-    borderRadius: 5,
-    flexDirection: 'row',
-    marginBottom: 5,
-    padding: 5,
-  },
-  renderItemTouchableImage: {
-    borderRadius: 5,
-    height: 30,
-    marginRight: 10,
-    width: 30,
-  },
-  toggleArea: {
+  buttonArea: {
     alignItems: 'center',
     flex: 1,
+    flexDirection: 'column',
+  },
+  buttonAreaChild: {
+    flex: 1,
+  },
+  buttonAreaChildColumn: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-  },
-  toggleAreaBtn: {
-    width: 150,
+    alignItems: 'center',
   },
 });
 

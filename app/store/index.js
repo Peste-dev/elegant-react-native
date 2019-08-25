@@ -1,37 +1,40 @@
-import {applyMiddleware, createStore, compose, combineReducers} from 'redux';
+import logger from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
 import {persistStore, persistReducer} from 'redux-persist';
 import AsyncStorage from '@react-native-community/async-storage';
+import {configureStore, getDefaultMiddleware} from 'redux-starter-kit';
 
 import rootSaga from 'store/sagas/index';
-import rootReducer from 'store/reducers/index';
+import rootReducers from 'store/reducers';
 
-import middleware, {sagaMiddleware} from './middleware';
+const sagaMiddleware = createSagaMiddleware();
 
-const reducer = persistReducer(
-  {
-    key: 'elegant', // key is required
-    storage: AsyncStorage, // storage is now required
-    whitelist: ['app', 'user'],
-  },
-  combineReducers({...rootReducer}),
-);
-
-/* istanbul ignore next */
-const configStore = (initialState = {}) => {
-  const store = createStore(
-    reducer,
-    initialState,
-    compose(applyMiddleware(...middleware)),
-  );
-
-  sagaMiddleware.run(rootSaga);
-
-  return {
-    persistor: persistStore(store),
-    store,
-  };
+const persistConfig = {
+  key: 'elegant',
+  storage: AsyncStorage,
+  whitelist: ['user', 'todos'],
 };
 
-const {store, persistor} = configStore();
+const persistedReducers = persistReducer(persistConfig, rootReducers);
+
+const defaultMiddlewareConfig = {
+  ignoreSerializable: ['persist/PERSIST'],
+};
+
+const middleware = [
+  sagaMiddleware,
+  ...getDefaultMiddleware(defaultMiddlewareConfig),
+  logger,
+];
+
+const store = configureStore({
+  reducer: persistedReducers,
+  middleware,
+  devTools: process.env.NODE_ENV !== 'production',
+});
+
+sagaMiddleware.run(rootSaga);
+
+const persistor = persistStore(store);
 
 export {store, persistor};

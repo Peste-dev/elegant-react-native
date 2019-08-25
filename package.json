@@ -1,6 +1,6 @@
 {
   "name": "elegant",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "scripts": {
     "start": "react-native start",
     "build": "cd android && ./gradlew assembleRelease",
@@ -14,10 +14,6 @@
     "@react-native-community/eslint-config": "^0.0.5",
     "axios": "^0.19.0",
     "babel-plugin-root-import": "^6.4.1",
-    "fbjs": "^1.0.0",
-    "git": "^0.1.5",
-    "immutability": "^1.0.2",
-    "immutability-helper": "^3.0.1",
     "lodash": "^4.17.15",
     "metro-react-native-babel-preset": "^0.56.0",
     "prettier": "^1.18.2",
@@ -29,13 +25,14 @@
     "react-native-paper": "^2.16.0",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^3.11.1",
+    "react-navigation-hooks": "^1.0.1",
     "react-redux": "^7.1.0",
     "redux": "^4.0.4",
     "redux-actions": "^2.6.5",
-    "redux-immutable-state-invariant": "^2.1.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
     "redux-saga": "^1.0.5",
+    "redux-starter-kit": "https://github.com/ramyareye/redux-starter-kit",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
