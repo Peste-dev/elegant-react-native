@@ -2,15 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Animated} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {useNavigation} from 'react-navigation-hooks';
-import {
-  View,
-  FlatList,
-  Loading,
-  Item,
-  Appbar,
-  Button,
-  Text,
-} from 'view/components';
+
+import Item from './Item';
+import {View, FlatList, Loading, Appbar, Button, Text} from 'view/components';
 
 import i18n from 'i18n';
 import style from 'view/style';

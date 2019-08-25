@@ -41,24 +41,3 @@ const githubSlice = createSlice({
 export const {getRepos, getReposSuccess, getReposFailure} = githubSlice.actions;
 
 export default githubSlice.reducer;
-
-//       [ActionTypes.GITHUB_GET_REPOS_SUCCESS]: (state, {payload}) =>
-//         immutable(state, {
-//           repos: {
-//             data: {
-//               [state.repos.query]: {$set: payload.data || []},
-//             },
-//             status: {$set: STATUS.READY},
-//           },
-//         }),
-//       [ActionTypes.GITHUB_GET_REPOS_FAILURE]: (state, {payload}) =>
-//         immutable(state, {
-//           repos: {
-//             message: {$set: payload.message || 'Something went wrong'},
-//             status: {$set: STATUS.ERROR},
-//           },
-//         }),
-//     },
-//     githubState,
-//   ),
-// };

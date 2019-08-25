@@ -8,9 +8,6 @@ module.exports = {
   get Image() {
     return require('react-native').Image;
   },
-  get Item() {
-    return require('./Item').default;
-  },
   get Loading() {
     return require('./Loading').default;
   },
