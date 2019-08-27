@@ -19,7 +19,7 @@ function* getReposSaga({payload}) {
   } catch (err) {
     let text = githubLang.requestError;
 
-    if (err && err.data && err.data.message) {
+    if (err?.data?.message) {
       text = err.data.message;
     }
 

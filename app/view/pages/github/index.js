@@ -54,30 +54,31 @@ const Github = () => {
             <Button
               key={button.id}
               mode="outlined"
-              color={'#13a77f'}
+              color="#13a77f"
               disabled={github.loading}
               onPress={() => setQuery(button.id)}
               style={appStyle.button}>
-              {github.loading
-                ? query === button.id
-                  ? appLang.loading
-                  : button.title
+              {query === button.id && github.loading
+                ? appLang.loading
                 : button.title}
             </Button>
           ))}
         </View>
 
         <View style={githubStyle.flatList}>
-          {github.error ? (
-            <Text>{github.message}</Text>
-          ) : github.loading ? (
+          {github.loading ? (
             <Loading />
-          ) : !github.data.length ? (
-            <Text>{githubLang.not_found}</Text>
           ) : (
             <Animated.View style={{opacity: scaleValue}}>
               <FlatList
                 data={github.data}
+                ListEmptyComponent={
+                  github.error ? (
+                    <Text>{github.message}</Text>
+                  ) : (
+                    <Text>{githubLang.not_found}</Text>
+                  )
+                }
                 showsVerticalScrollIndicator={false}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({item: {id, name, owner}}) => (

@@ -14,6 +14,7 @@ const githubSlice = createSlice({
       reducer(state, action) {
         const {query} = action.payload;
 
+        state.data = [];
         state.error = false;
         state.query = query;
         state.loading = true;

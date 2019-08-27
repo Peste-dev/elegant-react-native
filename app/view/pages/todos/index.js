@@ -45,11 +45,11 @@ const Todos = () => {
           <TextInput
             onChangeText={text => setTodoText(text)}
             value={todoText}
-            mode={'outlined'}
-            selectionColor={'#13a77f'}
+            mode="outlined"
+            selectionColor="#13a77f"
             style={todosStyle.addTodoText}
           />
-          <Button mode="outlined" color={'#13a77f'} onPress={() => _addTodo()}>
+          <Button mode="outlined" color="#13a77f" onPress={() => _addTodo()}>
             Add Todo
           </Button>
         </View>
@@ -59,7 +59,8 @@ const Todos = () => {
             {todos.map(todo => (
               <Todo
                 key={todo.id}
-                {...todo}
+                text={todo.text}
+                completed={todo.completed}
                 onClick={() => _toggleTodo({id: todo.id})}
                 onDelete={() => _deleteTodo({id: todo.id})}
               />

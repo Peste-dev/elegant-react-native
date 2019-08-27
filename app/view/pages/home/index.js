@@ -27,6 +27,14 @@ const Home = () => {
     }
   };
 
+  const _changeUserStatusButtonText = () => {
+    if (user.loggedIn) {
+      return authLang.signOut;
+    } else {
+      return authLang.signIn;
+    }
+  };
+
   return (
     <View style={appStyle.container}>
       <Appbar.Header style={appStyle.header}>
@@ -46,15 +54,11 @@ const Home = () => {
             <View style={homeStyle.buttonAreaChild}>
               <Button
                 mode="outlined"
-                color={'#13a77f'}
+                color="#13a77f"
                 disabled={user.onCheck}
                 onPress={() => _toggleUserStatus()}
                 style={appStyle.button}>
-                {user.onCheck
-                  ? appLang.loading
-                  : user.loggedIn
-                  ? authLang.signOut
-                  : authLang.signIn}
+                {user.onCheck ? appLang.loading : _changeUserStatusButtonText()}
               </Button>
             </View>
 
@@ -65,14 +69,14 @@ const Home = () => {
               )}>
               <Button
                 mode="outlined"
-                color={'#13a77f'}
+                color="#13a77f"
                 onPress={() => navigate('Todos')}
                 style={appStyle.button}>
                 Todos
               </Button>
               <Button
                 mode="outlined"
-                color={'#13a77f'}
+                color="#13a77f"
                 onPress={() => navigate('Github')}
                 style={appStyle.button}>
                 Async Redux

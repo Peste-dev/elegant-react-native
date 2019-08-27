@@ -12,7 +12,7 @@ const Todo = ({onClick, onDelete, completed, text}) => (
   <View style={todosStyle.todo}>
     <Button
       mode="outlined"
-      color={'#13a77f'}
+      color="#13a77f"
       onPress={onClick}
       style={todosStyle.todoBtn}>
       <Text
@@ -24,7 +24,7 @@ const Todo = ({onClick, onDelete, completed, text}) => (
         {text}
       </Text>
     </Button>
-    <IconButton icon="delete" color={'#13a77f'} size={16} onPress={onDelete} />
+    <IconButton icon="delete" color="#13a77f" size={16} onPress={onDelete} />
   </View>
 );
 
