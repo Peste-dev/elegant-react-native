@@ -32,7 +32,7 @@ const Github = () => {
   }, [dispatch, query]);
 
   useEffect(() => {
-    if (!github.loading && github.data.length) {
+    if (!github.loading) {
       Animated.timing(scaleValue, {
         delay: github.data[query] * 350,
         duration: 600,
