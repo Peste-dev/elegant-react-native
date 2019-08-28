@@ -73,11 +73,9 @@ const Github = () => {
               <FlatList
                 data={github.data}
                 ListEmptyComponent={
-                  github.error ? (
-                    <Text>{github.message}</Text>
-                  ) : (
-                    <Text>{githubLang.not_found}</Text>
-                  )
+                  <Text>
+                    {github.error ? github.message : githubLang.not_found}
+                  </Text>
                 }
                 showsVerticalScrollIndicator={false}
                 keyExtractor={item => item.id.toString()}
