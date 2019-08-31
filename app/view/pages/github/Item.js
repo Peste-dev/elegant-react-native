@@ -5,13 +5,13 @@ import {Text, TouchableOpacity, Image} from 'view/components';
 import style from 'view/style';
 
 const Item = ({title, owner}) => {
-  const {appStyle, homeStyle} = style;
+  const {appStyle, githubStyle} = style;
 
   return (
-    <TouchableOpacity style={homeStyle.renderItemTouchable}>
+    <TouchableOpacity style={githubStyle.renderItemTouchable}>
       <Image
         source={{uri: owner.avatar_url}}
-        style={homeStyle.renderItemTouchableImage}
+        style={githubStyle.renderItemTouchableImage}
       />
 
       <Text style={appStyle.whiteFont}>{title}</Text>

@@ -1,53 +1,44 @@
-import {handleActions} from 'redux-actions';
-import immutable from 'immutability-helper';
+import {createSlice} from 'redux-starter-kit';
 
-import {ActionTypes, STATUS} from 'store/constants/index';
-
-export const githubState = {
-  repos: {
-    data: {},
+const githubSlice = createSlice({
+  slice: 'github',
+  initialState: {
+    loading: false,
+    error: false,
+    data: [],
     message: '',
     query: '',
-    status: STATUS.IDLE,
   },
-};
+  reducers: {
+    getRepos: {
+      reducer(state, action) {
+        const {query} = action.payload;
 
-export default {
-  github: handleActions(
-    {
-      [ActionTypes.GITHUB_GET_REPOS]: (state, {payload}) => {
-        const data = state.repos.data[payload.query]
-          ? state.repos.data[payload.query]
-          : [];
-
-        return immutable(state, {
-          repos: {
-            data: {
-              [payload.query]: {$set: data},
-            },
-            message: {$set: ''},
-            query: {$set: payload.query},
-            status: {$set: STATUS.RUNNING},
-          },
-        });
+        state.data = [];
+        state.error = false;
+        state.query = query;
+        state.loading = true;
       },
-      [ActionTypes.GITHUB_GET_REPOS_SUCCESS]: (state, {payload}) =>
-        immutable(state, {
-          repos: {
-            data: {
-              [state.repos.query]: {$set: payload.data || []},
-            },
-            status: {$set: STATUS.READY},
-          },
-        }),
-      [ActionTypes.GITHUB_GET_REPOS_FAILURE]: (state, {payload}) =>
-        immutable(state, {
-          repos: {
-            message: {$set: payload.message || 'Something went wrong'},
-            status: {$set: STATUS.ERROR},
-          },
-        }),
+      prepare(query) {
+        return {payload: {query}};
+      },
     },
-    githubState,
-  ),
-};
+    getReposSuccess(state, action) {
+      const {data} = action.payload;
+
+      state.data = data;
+      state.loading = false;
+    },
+    getReposFailure(state, action) {
+      const {text} = action.payload;
+
+      state.error = true;
+      state.message = text;
+      state.loading = false;
+    },
+  },
+});
+
+export const {getRepos, getReposSuccess, getReposFailure} = githubSlice.actions;
+
+export default githubSlice.reducer;

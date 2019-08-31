@@ -1,5 +1,5 @@
 export default {
-  signIn: 'SignIn',
-  signOut: 'SignOut',
-  signUp: 'SignUp',
+  signIn: 'Sign In',
+  signOut: 'Sign Out',
+  signUp: 'Sign Up',
 };

@@ -1,56 +1,20 @@
-/**
- * @module Sagas/User
- * @desc User
- */
-
 import {all, delay, put, takeLatest} from 'redux-saga/effects';
 
-import {ActionTypes} from 'store/constants/index';
+import {login, loginSuccess, logout, logoutSuccess} from 'store/reducers/user';
 
-/**
- * Login
- */
-export function* login() {
-  try {
-    yield delay(400);
-
-    yield put({
-      type: ActionTypes.USER_LOGIN_SUCCESS,
-    });
-  } catch (err) {
-    /* istanbul ignore next */
-    yield put({
-      payload: err,
-      type: ActionTypes.USER_LOGIN_FAILURE,
-    });
-  }
+function* loginSaga() {
+  yield delay(400);
+  yield put({type: loginSuccess.type});
 }
 
-/**
- * Logout
- */
-export function* logout() {
-  try {
-    yield delay(200);
-
-    yield put({
-      type: ActionTypes.USER_LOGOUT_SUCCESS,
-    });
-  } catch (err) {
-    /* istanbul ignore next */
-    yield put({
-      payload: err,
-      type: ActionTypes.USER_LOGOUT_FAILURE,
-    });
-  }
+function* logoutSaga() {
+  yield delay(200);
+  yield put({type: logoutSuccess.type});
 }
 
-/**
- * User Sagas
- */
 export default function* root() {
   yield all([
-    takeLatest(ActionTypes.USER_LOGIN, login),
-    takeLatest(ActionTypes.USER_LOGOUT, logout),
+    takeLatest(login.type, loginSaga),
+    takeLatest(logout.type, logoutSaga),
   ]);
 }

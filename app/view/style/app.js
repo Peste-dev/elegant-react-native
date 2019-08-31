@@ -57,6 +57,14 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontFamily,
   },
+  header: {
+    backgroundColor: '#13a77f',
+  },
+  button: {
+    width: 150,
+    height: 35,
+    marginHorizontal: 5,
+  },
 });
 
 export default styles;
