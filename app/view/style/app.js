@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import theme from './theme';
 
 const {
   colors,
-  fonts: {fontFamily},
+  fonts: { fontFamily },
 } = theme;
 
 const styles = StyleSheet.create({
@@ -65,6 +65,10 @@ const styles = StyleSheet.create({
     height: 35,
     marginHorizontal: 5,
   },
+  tab: {
+    backgroundColor: '#13a77f',
+
+  }
 });
 
 export default styles;

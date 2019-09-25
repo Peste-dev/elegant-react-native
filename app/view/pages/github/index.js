@@ -1,28 +1,29 @@
-import React, {useEffect, useState} from 'react';
-import {Animated} from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
-import {useNavigation} from 'react-navigation-hooks';
+import React, { useEffect, useState } from 'react';
+import { Animated } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+// import {useNavigation} from 'react-navigation-hooks';
+import { useNavigation } from '@react-navigation/core';
 
 import Item from './Item';
-import {View, FlatList, Loading, Appbar, Button, Text} from 'view/components';
+import { View, FlatList, Loading, Appbar, Button, Text } from 'view/components';
 
 import i18n from 'i18n';
 import style from 'view/style';
 
-import {getRepos} from 'store/reducers/github';
-import {selectGithub} from 'store/selectors/github';
+import { getRepos } from 'store/reducers/github';
+import { selectGithub } from 'store/selectors/github';
 
 import buttons from './buttons';
 
 const Github = () => {
-  const {appLang, githubLang} = i18n;
-  const {appStyle, githubStyle} = style;
+  const { appLang, githubLang } = i18n;
+  const { appStyle, githubStyle } = style;
 
   const [query, setQuery] = useState('react');
   const [scaleValue] = useState(new Animated.Value(0));
 
   const dispatch = useDispatch();
-  const {goBack} = useNavigation();
+  const { goBack } = useNavigation();
   const github = useSelector(selectGithub);
 
   const _goBack = () => goBack();
@@ -69,22 +70,22 @@ const Github = () => {
           {github.loading ? (
             <Loading />
           ) : (
-            <Animated.View style={{opacity: scaleValue}}>
-              <FlatList
-                data={github.data}
-                ListEmptyComponent={
-                  <Text>
-                    {github.error ? github.message : githubLang.not_found}
-                  </Text>
-                }
-                showsVerticalScrollIndicator={false}
-                keyExtractor={item => item.id.toString()}
-                renderItem={({item: {id, name, owner}}) => (
-                  <Item key={id} title={name} owner={owner} />
-                )}
-              />
-            </Animated.View>
-          )}
+              <Animated.View style={{ opacity: scaleValue }}>
+                <FlatList
+                  data={github.data}
+                  ListEmptyComponent={
+                    <Text>
+                      {github.error ? github.message : githubLang.not_found}
+                    </Text>
+                  }
+                  showsVerticalScrollIndicator={false}
+                  keyExtractor={item => item.id.toString()}
+                  renderItem={({ item: { id, name, owner } }) => (
+                    <Item key={id} title={name} owner={owner} />
+                  )}
+                />
+              </Animated.View>
+            )}
         </View>
       </View>
     </View>
