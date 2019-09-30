@@ -18,7 +18,9 @@ const persistConfig = {
 const persistedReducers = persistReducer(persistConfig, rootReducers);
 
 const defaultMiddlewareConfig = {
-  ignoreSerializable: ['persist/PERSIST'],
+  serializableCheck: {
+    ignoredActions: ['persist/PERSIST'],
+  },
 };
 
 const middleware = [
