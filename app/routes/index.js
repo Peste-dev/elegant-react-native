@@ -1,4 +1,5 @@
-import {createAppContainer, createStackNavigator} from 'react-navigation';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
 import HomeScreen from 'view/pages/home';
 import TodosScreen from 'view/pages/todos';
