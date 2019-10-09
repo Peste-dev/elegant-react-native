@@ -26,8 +26,8 @@
     "react-native-paper": "^2.16.0",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.0.10",
-    "react-navigation-hooks": "^1.0.3",
-    "react-navigation-stack": "^1.9.1",
+    "react-navigation-hooks": "^1.1.0",
+    "react-navigation-stack": "^1.9.4",
     "react-redux": "^7.1.1",
     "redux": "^4.0.4",
     "redux-actions": "^2.6.5",
@@ -38,9 +38,9 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2",
+    "@babel/core": "^7.6.3",
     "@babel/plugin-proposal-optional-chaining": "^7.6.0",
-    "@babel/runtime": "^7.6.2",
+    "@babel/runtime": "^7.6.3",
     "babel-jest": "^24.9.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
