@@ -26,4 +26,7 @@ module.exports = {
   get TextInput() {
     return require('react-native-paper').TextInput;
   },
+  get Alert() {
+    return require('react-native').Alert;
+  },
 };

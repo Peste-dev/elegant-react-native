@@ -6,7 +6,7 @@ import {useNavigation} from 'react-navigation-hooks';
 import Item from './Item';
 import {View, FlatList, Loading, Appbar, Button, Text} from 'view/components';
 
-import i18n from 'i18n';
+import {t} from 'i18n';
 import style from 'view/style';
 
 import {getRepos} from 'store/reducers/github';
@@ -15,7 +15,6 @@ import {selectGithub} from 'store/selectors/github';
 import buttons from './buttons';
 
 const Github = () => {
-  const {appLang, githubLang} = i18n;
   const {appStyle, githubStyle} = style;
 
   const [query, setQuery] = useState('react');
@@ -45,7 +44,7 @@ const Github = () => {
     <View style={appStyle.container}>
       <Appbar.Header style={appStyle.header}>
         <Appbar.Action onPress={() => _goBack()} icon="arrow-back" />
-        <Appbar.Content title={githubLang.title} />
+        <Appbar.Content title={t('github.title')} />
       </Appbar.Header>
 
       <View style={appStyle.content}>
@@ -59,7 +58,7 @@ const Github = () => {
               onPress={() => setQuery(button.id)}
               style={appStyle.button}>
               {query === button.id && github.loading
-                ? appLang.loading
+                ? t('app.loading')
                 : button.title}
             </Button>
           ))}
@@ -74,7 +73,7 @@ const Github = () => {
                 data={github.data}
                 ListEmptyComponent={
                   <Text>
-                    {github.error ? github.message : githubLang.not_found}
+                    {github.error ? github.message : t('github.not_found')}
                   </Text>
                 }
                 showsVerticalScrollIndicator={false}

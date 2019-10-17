@@ -6,14 +6,13 @@ import {View, Appbar, TextInput, Button} from 'view/components';
 
 import Todo from './Todo';
 
-import i18n from 'i18n';
+import {t} from 'i18n';
 import style from 'view/style';
 
 import {selectTodos} from 'store/selectors/todos';
 import {addTodo, toggleTodo, deleteTodo} from 'store/reducers/todos';
 
 const Todos = () => {
-  const {todosLang} = i18n;
   const {appStyle, todosStyle} = style;
 
   const dispatch = useDispatch();
@@ -37,7 +36,7 @@ const Todos = () => {
     <View style={appStyle.container}>
       <Appbar.Header style={appStyle.header}>
         <Appbar.Action onPress={() => _goBack()} icon="arrow-back" />
-        <Appbar.Content title={todosLang.title} />
+        <Appbar.Content title={t('todos.title')} />
       </Appbar.Header>
 
       <View style={appStyle.content}>
@@ -50,7 +49,7 @@ const Todos = () => {
             style={todosStyle.addTodoText}
           />
           <Button mode="outlined" color="#13a77f" onPress={() => _addTodo()}>
-            Add Todo
+            {t('todos.addTodo')}
           </Button>
         </View>
 

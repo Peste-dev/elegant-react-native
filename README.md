@@ -22,6 +22,7 @@ yarn android /* android */
 ### Additional Steps (Android)
 
 - [React Native Gesture Handler]
+- [React Native RTL Support]
 
 
 
@@ -61,5 +62,6 @@ MIT
 
    [React Native]: <https://facebook.github.io/react-native/docs/getting-started>
    [React Native Gesture Handler]: <https://kmagiera.github.io/react-native-gesture-handler/docs/getting-started.html#android>
+   [React Native RTL Support]: <https://facebook.github.io/react-native/blog/2016/08/19/right-to-left-support-for-react-native-apps#making-an-app-rtl-ready>
    [on Trello]: <https://trello.com/b/51mP8jB1/elegant-react-native>
    [Invitation Link]: <https://trello.com/invite/b/51mP8jB1/f66ec266f4d71ac3ae8d2b6d21b9c32f/elegant-react-native>
