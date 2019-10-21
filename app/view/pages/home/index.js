@@ -1,15 +1,17 @@
-import {styleJoiner} from 'helpers/util';
-import {setI18nConfig, t} from 'i18n';
-import React from 'react';
+import React, {useEffect, useCallback} from 'react';
 import {useNavigation} from 'react-navigation-hooks';
 import {useDispatch, useSelector} from 'react-redux';
+import RNRestart from 'react-native-restart';
+import {Appbar, Button, Image, View, Alert} from 'view/components';
+
+import style from 'view/style';
+import {styleJoiner} from 'helpers/util';
+import {setI18nConfig, t} from 'i18n';
+
 import {login, logout} from 'store/reducers/user';
 import {setAppFirstLaunch} from 'store/reducers/app';
 import {selectApp} from 'store/selectors/app';
 import {selectUser} from 'store/selectors/user';
-import {Appbar, Button, Image, View, Alert} from 'view/components';
-import style from 'view/style';
-import RNRestart from 'react-native-restart';
 
 const Home = () => {
   const {appStyle, homeStyle} = style;
@@ -19,6 +21,15 @@ const Home = () => {
 
   const user = useSelector(selectUser);
   const app = useSelector(selectApp);
+
+  useEffect(() => {
+    if (app.isFirsLaunch) {
+      showAlert();
+    }
+
+    setI18nConfig();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const _toggleUserStatus = () => {
     if (user.loggedIn) {
@@ -36,35 +47,36 @@ const Home = () => {
     }
   };
 
-  const showAlert = () =>
-    Alert.alert(
-      t('app.alertTitle'),
-      t('app.alertMessage'),
-      [
-        {
-          text: 'English',
-          onPress: () => {
-            setI18nConfig({isRTL: false, name: 'en'});
-            dispatch(setAppFirstLaunch());
-            setTimeout(RNRestart.Restart, 2000);
+  const showAlert = useCallback(
+    () =>
+      Alert.alert(
+        t('app.alertTitle'),
+        t('app.alertMessage'),
+        [
+          {
+            text: 'English',
+            onPress: () => {
+              setI18nConfig({isRTL: false, name: 'en'});
+              dispatch(setAppFirstLaunch());
+              setTimeout(RNRestart.Restart, 2000);
+            },
           },
-        },
-        {
-          text: 'فارسی',
-          onPress: () => {
-            setI18nConfig({isRTL: true, name: 'fa'});
-            dispatch(setAppFirstLaunch());
-            setTimeout(RNRestart.Restart, 2000);
+          {
+            text: 'فارسی',
+            onPress: () => {
+              setI18nConfig({isRTL: true, name: 'fa'});
+              dispatch(setAppFirstLaunch());
+              setTimeout(RNRestart.Restart, 2000);
+            },
+            style: 'cancel',
           },
-          style: 'cancel',
-        },
-      ],
-      {cancelable: true},
-    );
-  if (app.isFirsLaunch) {
-    showAlert();
-  }
-  setI18nConfig();
+        ],
+        {cancelable: true},
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
+
   return (
     <View style={appStyle.container}>
       <Appbar.Header style={appStyle.header}>

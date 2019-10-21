@@ -1,6 +1,9 @@
 import I18n from 'i18n-js';
 import {memoize} from 'lodash';
 import {I18nManager} from 'react-native';
+
+import {changeLanguage} from '../store/reducers/app';
+
 import i18nEN from '../i18n/en';
 import i18nFA from '../i18n/fa';
 import {store} from '../store';
@@ -9,7 +12,6 @@ import auth from './en/auth';
 import home from './en/home';
 import todos from './en/todos';
 import github from './en/github';
-import {changeLanguage} from '../store/reducers/app';
 
 I18n.translations = {
   en: {
@@ -33,6 +35,8 @@ const translate = memoize(
   (key, config) => I18n.t(key, config),
   (key, config) => (config ? key + JSON.stringify(config) : key),
 );
+
+const t = word => I18n.t(word);
 const setI18nConfig = config => {
   const state = store.getState();
   const {isRTL = false, name: languageTag} = config
@@ -45,7 +49,7 @@ const setI18nConfig = config => {
 
   I18n.locale = languageTag;
 };
-const t = word => I18n.t(word);
+
 export default {
   appLang: app,
   authLang: auth,
@@ -53,4 +57,5 @@ export default {
   todosLang: todos,
   githubLang: github,
 };
+
 export {setI18nConfig, t};
