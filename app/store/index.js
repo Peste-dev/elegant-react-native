@@ -12,7 +12,7 @@ const sagaMiddleware = createSagaMiddleware();
 const persistConfig = {
   key: 'elegant',
   storage: AsyncStorage,
-  whitelist: ['user', 'todos'],
+  whitelist: ['user', 'todos', 'app'],
 };
 
 const persistedReducers = persistReducer(persistConfig, rootReducers);
