@@ -44,6 +44,16 @@ cd android && ./gradlew clean && cd ../  && yarn android
 ```
 
 
+### Todo then
+
+- Add Customzable Theme and Dark Mode
+- Auto Eject after Initialize Project
+- Turn Elegant to a React Native Template
+- Offline Management
+- Web - SPA/SSR
+- Tests
+- Docs
+
 ### Contribution
 
 - Todos [on Trello] ( [Invitation Link] )
