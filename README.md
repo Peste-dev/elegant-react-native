@@ -46,7 +46,7 @@ cd android && ./gradlew clean && cd ../  && yarn android
 
 ### Todo then
 
-- Add Customzable Theme and Dark Mode
+- Add Customizable Theme and Dark Mode
 - Auto Eject after Initialize Project
 - Turn Elegant to a React Native Template
 - Offline Management
