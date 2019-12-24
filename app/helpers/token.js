@@ -12,6 +12,7 @@ class Token {
 
     const accessToken = await AsyncStorage.getItem('ACCESS_TOKEN');
 
+    this._accessToken = accessToken;
     return accessToken || '';
   }
 
