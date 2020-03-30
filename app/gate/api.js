@@ -21,7 +21,11 @@ const call = async (method, url, data = {}) => {
   const request = {headers, method, url};
 
   if (!isEmpty(data)) {
-    request.data = data;
+    if (method !== 'get') {
+      request.data = data;
+    } else {
+      request.params = data;
+    }
   }
 
   try {

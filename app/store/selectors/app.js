@@ -1,1 +1,1 @@
-export const selectApp = state => state.app;
+export const selectApp = (state) => state.app;

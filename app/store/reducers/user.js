@@ -1,15 +1,15 @@
-import {createSlice} from 'redux-starter-kit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const userSlice = createSlice({
-  slice: 'users',
+  name: 'users',
   initialState: {loggedIn: false, onCheck: false},
   reducers: {
-    login: state => ({...state, onCheck: true}),
+    login: (state) => ({...state, onCheck: true}),
     loginSuccess(state) {
       state.onCheck = false;
       state.loggedIn = true;
     },
-    logout: state => ({...state, onCheck: true}),
+    logout: (state) => ({...state, onCheck: true}),
     logoutSuccess(state) {
       state.onCheck = false;
       state.loggedIn = false;
