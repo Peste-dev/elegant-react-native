@@ -13,6 +13,8 @@ import App from './app/App';
 
 import {name as appName} from './app.json';
 
+require('react-native').unstable_enableLogBox();
+
 enableScreens();
 
 const Elegant = () => (
