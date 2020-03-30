@@ -13,7 +13,6 @@ cd elegant-react-native
 ```sh
 yarn
 nano app.json /* here we go to edit project name and displayName */
-cp .env.example .env /* some ENV stuff? I hope I can remove it smdy! */
 react-native eject /* generate ios and android folders */
 react-native link /* add app/assets/fonts and react-native-vector-icons  */
 cd ios && pod install && cd ../ && yarn ios
