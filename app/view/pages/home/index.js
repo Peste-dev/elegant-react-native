@@ -1,5 +1,4 @@
 import React, {useEffect, useCallback} from 'react';
-import {useNavigation} from 'react-navigation-hooks';
 import {useDispatch, useSelector} from 'react-redux';
 import RNRestart from 'react-native-restart';
 import {Appbar, Button, Image, View, Alert} from 'view/components';
@@ -13,11 +12,11 @@ import {setAppFirstLaunch} from 'store/reducers/app';
 import {selectApp} from 'store/selectors/app';
 import {selectUser} from 'store/selectors/user';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const {appStyle, homeStyle} = style;
 
   const dispatch = useDispatch();
-  const {navigate} = useNavigation();
+  const {navigate} = navigation;
 
   const user = useSelector(selectUser);
   const app = useSelector(selectApp);

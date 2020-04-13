@@ -36,8 +36,8 @@ const translate = memoize(
   (key, config) => (config ? key + JSON.stringify(config) : key),
 );
 
-const t = word => I18n.t(word);
-const setI18nConfig = config => {
+const t = (word) => I18n.t(word);
+const setI18nConfig = (config) => {
   const state = store.getState();
   const {isRTL = false, name: languageTag} = config
     ? config
