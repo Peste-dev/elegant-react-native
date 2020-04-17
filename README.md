@@ -1,4 +1,4 @@
-### Elegant React Native ( WIP ) - RN 0.61.2
+### Elegant React Native ( WIP ) - RN 0.62.2
 
 
 
