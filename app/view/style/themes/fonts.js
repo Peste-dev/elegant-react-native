@@ -1,7 +1,7 @@
 export const defaultFontConfig = {
   default: {
     regular: {
-      fontFamily: 'Dana-Bold',
+      fontFamily: 'Roboto-Regular',
       fontWeight: 'normal',
     },
     medium: {

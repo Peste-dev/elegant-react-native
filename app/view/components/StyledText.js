@@ -1,11 +1,7 @@
-import * as React from 'react';
-import {I18nManager, StyleProp, TextStyle} from 'react-native';
+import React from 'react';
+import {I18nManager} from 'react-native';
 
-import {Text} from '../index';
-// import {withTheme} from '../../core/theming';
-import {useTheme} from 'react-native-paper';
-
-
+import {useTheme, Text} from 'react-native-paper';
 
 const StyledText = (props) => {
   const {colors, fonts} = useTheme();

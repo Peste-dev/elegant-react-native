@@ -29,4 +29,7 @@ module.exports = {
   get Alert() {
     return require('react-native').Alert;
   },
+  get StyledText() {
+    return require('./StyledText').default;
+  },
 };
