@@ -16,7 +16,6 @@ const StyledText = (props) => {
       style={[
         {color: textColor, ...font, textAlign: 'left', writingDirection},
         style,
-        props.style,
       ]}
     />
   );
