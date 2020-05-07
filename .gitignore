@@ -36,9 +36,6 @@ npm-debug.log
 yarn-error.log
 yarn.lock
 
-# Environment Variables
-.env
-
 # BUCK
 buck-out/
 \.buckd/
@@ -58,6 +55,9 @@ buck-out/
 
 # Bundle artifact
 *.jsbundle
+
+# CocoaPods
+/ios/Pods/
 
 android/
 ios/

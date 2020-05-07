@@ -1,5 +1,4 @@
 ### Elegant React Native ( WIP ) - RN 0.62.2
-
 ### Installation
 
 First, make sure you Installed [React Native] cli and its requirements according to Facebook Docs.
@@ -10,9 +9,16 @@ First, make sure you Installed [React Native] cli and its requirements according
 git clone https://github.com/iran-react-community/elegant-react-native.git
 cd elegant-react-native
 ```
-
 ```
 yarn Install //Best to use Yarn.
+=======
+```sh
+yarn
+nano app.json /* here we go to edit project name and displayName */
+react-native eject /* generate ios and android folders */
+react-native link /* add app/assets/fonts and react-native-vector-icons  */
+cd ios && pod install && cd ../ && yarn ios
+yarn android /* android */
 ```
 
 Open `app.json` **file where you can edit your project name and displayName.**

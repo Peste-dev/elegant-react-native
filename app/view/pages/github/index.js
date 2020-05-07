@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Animated} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {useNavigation} from 'react-navigation-hooks';
 
 import Item from './Item';
 import {View, FlatList, Loading, Appbar, Button, Text} from 'view/components';
@@ -14,14 +13,14 @@ import {selectGithub} from 'store/selectors/github';
 
 import buttons from './buttons';
 
-const Github = () => {
+const Github = ({navigation}) => {
   const {appStyle, githubStyle} = style;
 
   const [query, setQuery] = useState('react');
   const [scaleValue] = useState(new Animated.Value(0));
 
   const dispatch = useDispatch();
-  const {goBack} = useNavigation();
+  const {goBack} = navigation;
   const github = useSelector(selectGithub);
 
   const _goBack = () => goBack();
@@ -49,7 +48,7 @@ const Github = () => {
 
       <View style={appStyle.content}>
         <View style={githubStyle.buttonArea}>
-          {buttons.map(button => (
+          {buttons.map((button) => (
             <Button
               key={button.id}
               mode="outlined"
@@ -77,7 +76,7 @@ const Github = () => {
                   </Text>
                 }
                 showsVerticalScrollIndicator={false}
-                keyExtractor={item => item.id.toString()}
+                keyExtractor={(item) => item.id.toString()}
                 renderItem={({item: {id, name, owner}}) => (
                   <Item key={id} title={name} owner={owner} />
                 )}

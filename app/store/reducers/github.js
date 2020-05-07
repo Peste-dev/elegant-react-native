@@ -1,7 +1,7 @@
-import {createSlice} from 'redux-starter-kit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const githubSlice = createSlice({
-  slice: 'github',
+  name: 'github',
   initialState: {
     loading: false,
     error: false,

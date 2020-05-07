@@ -2,7 +2,7 @@ import axios from 'axios';
 import isEmpty from 'lodash/isEmpty';
 
 import tokenHelper from 'helpers/token';
-import {API_URL} from 'react-native-dotenv';
+import {API_URL} from 'helpers/constants';
 
 const client = axios.create({baseURL: API_URL, json: true});
 
@@ -21,7 +21,11 @@ const call = async (method, url, data = {}) => {
   const request = {headers, method, url};
 
   if (!isEmpty(data)) {
-    request.data = data;
+    if (method !== 'get') {
+      request.data = data;
+    } else {
+      request.params = data;
+    }
   }
 
   try {
