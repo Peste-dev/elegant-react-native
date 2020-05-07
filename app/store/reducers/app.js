@@ -1,7 +1,7 @@
-import {createSlice} from 'redux-starter-kit';
+import {createSlice} from '@reduxjs/toolkit';
 
 const appSlice = createSlice({
-  slice: 'app',
+  name: 'app',
   initialState: {language: {isRTL: true, name: 'fa'}, isFirsLaunch: true},
   reducers: {
     changeLanguage(state, action) {

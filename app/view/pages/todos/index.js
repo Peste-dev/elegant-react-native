@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {ScrollView} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {useNavigation} from 'react-navigation-hooks';
 import {View, Appbar, TextInput, Button} from 'view/components';
 
 import Todo from './Todo';
@@ -12,11 +11,11 @@ import style from 'view/style';
 import {selectTodos} from 'store/selectors/todos';
 import {addTodo, toggleTodo, deleteTodo} from 'store/reducers/todos';
 
-const Todos = () => {
+const Todos = ({navigation}) => {
   const {appStyle, todosStyle} = style;
 
   const dispatch = useDispatch();
-  const {goBack} = useNavigation();
+  const {goBack} = navigation;
   const [todoText, setTodoText] = useState('');
 
   const todos = useSelector(selectTodos);
@@ -29,8 +28,8 @@ const Todos = () => {
   };
 
   const _goBack = () => goBack();
-  const _toggleTodo = id => dispatch(toggleTodo(id));
-  const _deleteTodo = id => dispatch(deleteTodo(id));
+  const _toggleTodo = (id) => dispatch(toggleTodo(id));
+  const _deleteTodo = (id) => dispatch(deleteTodo(id));
 
   return (
     <View style={appStyle.container}>
@@ -42,7 +41,7 @@ const Todos = () => {
       <View style={appStyle.content}>
         <View style={todosStyle.addTodo}>
           <TextInput
-            onChangeText={text => setTodoText(text)}
+            onChangeText={(text) => setTodoText(text)}
             value={todoText}
             mode="outlined"
             selectionColor="#13a77f"
@@ -55,7 +54,7 @@ const Todos = () => {
 
         <View style={todosStyle.todos}>
           <ScrollView scrollEnabled={false}>
-            {todos.map(todo => (
+            {todos.map((todo) => (
               <Todo
                 key={todo.id}
                 text={todo.text}
