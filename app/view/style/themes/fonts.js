@@ -8,12 +8,10 @@ export const defaultFontConfig = {
       fontFamily: 'Roboto-Medium',
       fontWeight: 'normal',
     },
-
     light: {
       fontFamily: 'Roboto-Light',
       fontWeight: 'normal',
     },
-
     thin: {
       fontFamily: 'Roboto-Thin',
       fontWeight: 'normal',
@@ -28,12 +26,10 @@ export const defaultFontConfig = {
       fontFamily: 'Roboto-Medium',
       fontWeight: 'normal',
     },
-
     light: {
       fontFamily: 'Roboto-Light',
       fontWeight: 'normal',
     },
-
     thin: {
       fontFamily: 'Roboto-Thin',
       fontWeight: 'normal',
