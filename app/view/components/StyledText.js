@@ -21,4 +21,4 @@ const StyledText = (props) => {
   );
 };
 
-export default StyledText;
+export default React.memo(StyledText);

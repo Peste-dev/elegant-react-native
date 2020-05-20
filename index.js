@@ -16,14 +16,12 @@ require('react-native').unstable_enableLogBox();
 
 enableScreens();
 
-const Elegant = () => {
-  return (
-    <Provider store={store}>
-      <PersistGate loading={<Loading />} persistor={persistor}>
-        <App />
-      </PersistGate>
-    </Provider>
-  );
-};
+const Elegant = () => (
+  <Provider store={store}>
+    <PersistGate loading={<Loading />} persistor={persistor}>
+      <App />
+    </PersistGate>
+  </Provider>
+);
 
 AppRegistry.registerComponent(appName, () => Elegant);
