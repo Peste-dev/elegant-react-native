@@ -1,5 +1,4 @@
 ### Elegant React Native ( WIP ) - RN 0.62.2
-
 ### Installation
 
 First, make sure you Installed [React Native] cli and its requirements according to Facebook Docs.
