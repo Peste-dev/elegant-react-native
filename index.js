@@ -4,7 +4,6 @@ import {Provider} from 'react-redux';
 import {AppRegistry} from 'react-native';
 import {enableScreens} from 'react-native-screens';
 import {PersistGate} from 'redux-persist/lib/integration/react';
-import {Provider as PaperProvider} from 'react-native-paper';
 
 import {store, persistor} from 'store/index';
 
@@ -20,9 +19,7 @@ enableScreens();
 const Elegant = () => (
   <Provider store={store}>
     <PersistGate loading={<Loading />} persistor={persistor}>
-      <PaperProvider>
-        <App />
-      </PaperProvider>
+      <App />
     </PersistGate>
   </Provider>
 );

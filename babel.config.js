@@ -18,6 +18,7 @@ module.exports = {
           routes: './app/routes',
           store: './app/store',
           view: './app/view',
+          context: './app/context',
         },
         root: ['./app'],
       },
