@@ -5,10 +5,10 @@ First, make sure you Installed [React Native] cli and its requirements according
 
 **1 - Clone the Project**
 
-```sh
-git clone https://github.com/iran-react-community/elegant-react-native.git
-cd elegant-react-native
-```
+    ```sh
+      git clone https://github.com/iran-react-community/elegant-react-native.git
+      cd elegant-react-native
+    ```
 Open `app.json` **file where you can edit your project name and displayName.**
 
 Now run `react-native eject` **To generate ios and android folders**
