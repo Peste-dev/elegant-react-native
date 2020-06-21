@@ -3,23 +3,39 @@
 
 First, make sure you Installed [React Native] cli and its requirements according to Facebook Docs.
 
-**1 - Clone the Project**
+  1. Clone the project:
 
-```sh
-git clone https://github.com/iran-react-community/elegant-react-native.git
-cd elegant-react-native
-```
-Open `app.json` **file where you can edit your project name and displayName.**
+    ```sh
+    git clone https://github.com/iran-react-community/elegant-react-native.git
+    cd elegant-react-native
+    ```
 
-Now run `react-native eject` **To generate ios and android folders**
+  2. Add your desired name:
 
-`react-native link` **this will add app/assets/fonts and react-native-vector-icons**
+    Open `app.json` **file where you can edit your project name and displayName.**
 
-`cd ios && pod install && cd..`
+  3. Eject:
 
-`yarn ios` to **Run Ios development**
+    Now run `react-native eject` **To generate ios and android folders**
 
-`yarn android` to **Run Android development**
+  4. Linking the vector icons:
+
+    `react-native link` **this will add app/assets/fonts and react-native-vector-icons**
+
+  5. Install the iOS dependencies:
+
+    ```cd ios && pod install && cd ..```
+
+  6. Run the project:
+
+    `yarn ios` to **Run Ios development**
+
+    `yarn android` to **Run Android development**
+
+### Fix probably issues
+
+ - Android: For some unknown reason the latest React-Native version has an incompatible Gradle version, so for fixing the issue follow [this Stack Overflow] answer.
+ - iOS: If you do not link the `vector icons` it doesn't work, if you link it then you cannot have an iOS build, so link it and then open the Xcode with double-click the `{projectName}.xcworkspace`, then in the `Build phase > [CP] Copy Pods Resources` delete all outputs. after it the `yarn ios` will work properly. 
 
 ### Additional Steps
 
@@ -70,3 +86,4 @@ MIT
 [react native rtl support]: https://facebook.github.io/react-native/blog/2016/08/19/right-to-left-support-for-react-native-apps#making-an-app-rtl-ready
 [on trello]: https://trello.com/b/51mP8jB1/elegant-react-native
 [invitation link]: https://trello.com/invite/b/51mP8jB1/f66ec266f4d71ac3ae8d2b6d21b9c32f/elegant-react-native
+[this Stack Overflow]: https://stackoverflow.com/a/62302375/6877799
