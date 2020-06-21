@@ -5,32 +5,32 @@ First, make sure you Installed [React Native] cli and its requirements according
 
   1. Clone the project:
 
-    ```sh
-    git clone https://github.com/iran-react-community/elegant-react-native.git
-    cd elegant-react-native
-    ```
+     ```shell script
+     git clone https://github.com/iran-react-community/elegant-react-native.git
+     cd elegant-react-native
+     ```
 
   2. Add your desired name:
 
-    Open `app.json` **file where you can edit your project name and displayName.**
+     Open `app.json` **file where you can edit your project name and displayName.**
 
   3. Eject:
 
-    Now run `react-native eject` **To generate ios and android folders**
+     Now run `react-native eject` **To generate ios and android folders**
 
   4. Linking the vector icons:
 
-    `react-native link` **this will add app/assets/fonts and react-native-vector-icons**
+     `react-native link` **this will add app/assets/fonts and react-native-vector-icons**
 
   5. Install the iOS dependencies:
 
-    ```cd ios && pod install && cd ..```
+     ```cd ios && pod install && cd ..```
 
   6. Run the project:
 
-    `yarn ios` to **Run Ios development**
+     - `yarn ios` to **Run Ios development**
 
-    `yarn android` to **Run Android development**
+     - `yarn android` to **Run Android development**
 
 ### Fix probably issues
 
