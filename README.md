@@ -32,7 +32,7 @@ First, make sure you Installed [React Native] cli and its requirements according
 
      - `yarn android` to **Run Android development**
 
-### Fix probably issues
+### Fix probable issues
 
  - Android: For some unknown reason the latest React-Native version has an incompatible Gradle version, so for fixing the issue follow [this Stack Overflow] answer.
  - iOS: If you do not link the `vector icons` it doesn't work, if you link it then you cannot have an iOS build, so link it and then open the Xcode with double-click the `{projectName}.xcworkspace`, then in the `Build phase > [CP] Copy Pods Resources` delete all outputs. after it the `yarn ios` will work properly. 
