@@ -24,7 +24,7 @@
     "babel-plugin-root-import": "^6.5.0",
     "i18n-js": "^3.7.1",
     "jest": "^26.4.2",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "metro-react-native-babel-preset": "^0.63.0",
     "prettier": "^2.1.1",
     "prop-types": "^15.7.2",
