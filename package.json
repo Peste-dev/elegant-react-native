@@ -18,7 +18,7 @@
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",
     "@reduxjs/toolkit": "^1.4.0",
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "babel-jest": "^26.3.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-root-import": "^6.5.0",
